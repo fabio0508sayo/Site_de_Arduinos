@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios Arduino | Circuito Interativo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="pcb-board">
+        <!-- SVG for background traces -->
+        <svg class="bg-traces" width="100%" height="100%">
+            <!-- Traces will be animated here -->
+        </svg>
+
+        <header class="main-header">
+            <div class="pcb-pad-group">
+                <span class="pad"></span><span class="pad"></span><span class="pad"></span>
+            </div>
+            <h1>ARDUINO LAB EXPERIMENTS</h1>
+            <p class="subtitle">v1.0.0 // SISTEMA INICIADO</p>
+        </header>
+
+        <!-- Module 1 -->
+        <section class="module" id="mod-1">
+            <div class="module-content">
+                <div class="module-header">
+                    <h2>MOD 01 // ILUMINAÇÃO INTELIGENTE</h2>
+                    <div class="led led-blue"></div>
+                </div>
+                
+                <div class="components-list">
+                    <span class="chip">PIR</span>
+                    <span class="chip">LDR</span>
+                    <span class="chip">LED</span>
+                </div>
+
+                <p class="explanation">
+                    Sistema automatizado que aciona a iluminação apenas quando detecta movimento (PIR) em ambientes com baixa luminosidade (LDR). Economia e inteligência.
+                </p>
+
+                <div class="media-container">
+                    <video src="videos/desafio1.mp4" controls loop muted></video>
+                </div>
+
+                <div class="firmware-section">
+                    <div class="firmware-header">
+                        <h3>FIRMWARE</h3>
+                        <button class="copy-btn" data-target="code1">COPIAR</button>
+                    </div>
+                    <pre><code id="code1">
+const int PIR_PIN = 2;
+const int LDR_PIN = A0;
+const int LED_PIN = 13;
+
+void setup() {
+  pinMode(PIR_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int ldrValue = analogRead(LDR_PIN);
+  int motion = digitalRead(PIR_PIN);
+  
+  if (ldrValue < 500 && motion == HIGH) {
+    digitalWrite(LED_PIN, HIGH);
+  } else {
+    digitalWrite(LED_PIN, LOW);
+  }
+  delay(100);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connection Trace 1 -->
+        <div class="trace-connector">
+            <div class="trace-line">
+                <div class="electron"></div>
+            </div>
+        </div>
+
+        <!-- Module 2 -->
+        <section class="module" id="mod-2">
+            <div class="module-content">
+                <div class="module-header">
+                    <h2>MOD 02 // SENSOR DE DISTÂNCIA</h2>
+                    <div class="led led-yellow"></div>
+                </div>
+                
+                <div class="components-list">
+                    <span class="chip">ULTRASSÔNICO</span>
+                    <span class="chip">POTENCIÔMETRO</span>
+                    <span class="chip">LED</span>
+                </div>
+
+                <p class="explanation">
+                    Mede a distância de objetos próximos. O potenciômetro ajusta a sensibilidade de disparo do LED, indicando proximidade de perigo.
+                </p>
+
+                <div class="media-container">
+                    <video src="videos/desafio2.mp4" controls loop muted></video>
+                </div>
+
+                <div class="firmware-section">
+                    <div class="firmware-header">
+                        <h3>FIRMWARE</h3>
+                        <button class="copy-btn" data-target="code2">COPIAR</button>
+                    </div>
+                    <pre><code id="code2">
+#include &lt;NewPing.h&gt;
+
+#define TRIGGER_PIN  3
+#define ECHO_PIN     4
+#define MAX_DISTANCE 200
+
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+const int POT_PIN = A1;
+const int LED_PIN = 12;
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  int threshold = map(analogRead(POT_PIN), 0, 1023, 5, 100);
+  int distance = sonar.ping_cm();
+  
+  if (distance > 0 && distance < threshold) {
+    digitalWrite(LED_PIN, HIGH);
+  } else {
+    digitalWrite(LED_PIN, LOW);
+  }
+  delay(50);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connection Trace 2 -->
+        <div class="trace-connector">
+            <div class="trace-line">
+                <div class="electron"></div>
+            </div>
+        </div>
+
+        <!-- Module 3 -->
+        <section class="module" id="mod-3">
+            <div class="module-content">
+                <div class="module-header">
+                    <h2>MOD 03 // CLIMA CONTROL</h2>
+                    <div class="led led-red"></div>
+                </div>
+                
+                <div class="components-list">
+                    <span class="chip">TEMPERATURA</span>
+                    <span class="chip">UMIDADE</span>
+                    <span class="chip">LEDS</span>
+                </div>
+
+                <p class="explanation">
+                    Monitoramento contínuo das condições ambientais. LEDs de diferentes cores alertam se a temperatura ou umidade ultrapassarem os limites ideais.
+                </p>
+
+                <div class="media-container">
+                    <video src="videos/desafio3.mp4" controls loop muted></video>
+                </div>
+
+                <div class="firmware-section">
+                    <div class="firmware-header">
+                        <h3>FIRMWARE</h3>
+                        <button class="copy-btn" data-target="code3">COPIAR</button>
+                    </div>
+                    <pre><code id="code3">
+#include "DHT.h"
+
+#define DHTPIN 5
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN, DHTTYPE);
+const int LED_TEMP_ALARM = 11;
+const int LED_HUM_ALARM = 10;
+
+void setup() {
+  dht.begin();
+  pinMode(LED_TEMP_ALARM, OUTPUT);
+  pinMode(LED_HUM_ALARM, OUTPUT);
+}
+
+void loop() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+  
+  if (isnan(h) || isnan(t)) return;
+  
+  digitalWrite(LED_TEMP_ALARM, t > 30.0 ? HIGH : LOW);
+  digitalWrite(LED_HUM_ALARM, h < 30.0 || h > 70.0 ? HIGH : LOW);
+  
+  delay(2000);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Animation Section -->
+        <section class="final-animation-container">
+            <button id="trigger-animation">TESTAR CIRCUITO COMPLETO</button>
+            <div class="circuit-path">
+                <div class="node" id="node-1">1</div>
+                <div class="path-line"><div class="current"></div></div>
+                <div class="node" id="node-2">2</div>
+                <div class="path-line"><div class="current"></div></div>
+                <div class="node" id="node-3">3</div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

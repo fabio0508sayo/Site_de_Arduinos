@@ -1,0 +1,351 @@
+:root {
+    --pcb-bg: #0B301A; /* Dark green */
+    --pcb-trace: #C0C0C0; /* Silver traces */
+    --pcb-trace-active: #E4C05A; /* Gold/copper */
+    --pad-color: #D3D3D3;
+    --text-main: #FFFFFF;
+    --text-code: #00FF41;
+    --led-blue: #00F0FF;
+    --led-yellow: #FFEA00;
+    --led-red: #FF003C;
+    --chip-bg: #1A1A1A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--pcb-bg);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    background-image: 
+        radial-gradient(circle at 100% 50%, transparent 20%, rgba(255,255,255,.05) 21%, rgba(255,255,255,.05) 34%, transparent 35%, transparent),
+        radial-gradient(circle at 0% 50%, transparent 20%, rgba(255,255,255,.05) 21%, rgba(255,255,255,.05) 34%, transparent 35%, transparent);
+    background-size: 40px 40px;
+}
+
+h1, h2, h3, .subtitle, button, .chip {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.pcb-board {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    border-left: 4px solid var(--pcb-trace);
+    border-right: 4px solid var(--pcb-trace);
+    min-height: 100vh;
+}
+
+/* Header */
+.main-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    border: 2px solid var(--pcb-trace);
+    border-radius: 8px;
+    background: rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.pcb-pad-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.pad {
+    width: 12px;
+    height: 12px;
+    background: var(--pad-color);
+    border-radius: 50%;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.5);
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.subtitle {
+    color: var(--pcb-trace);
+    margin-top: 0.5rem;
+}
+
+/* Modules */
+.module {
+    margin-bottom: 1rem;
+    padding: 2rem;
+    border: 2px solid var(--pcb-trace);
+    border-radius: 8px;
+    background: rgba(0,0,0,0.4);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.module:hover {
+    border-color: var(--pcb-trace-active);
+    box-shadow: 0 0 20px rgba(228, 192, 90, 0.1);
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--pcb-trace);
+    padding-bottom: 1rem;
+}
+
+.module-header h2 {
+    font-size: 1.5rem;
+    color: var(--pcb-trace-active);
+}
+
+/* LEDs */
+.led {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #333;
+    border: 2px solid #222;
+    box-shadow: inset 0 0 5px rgba(0,0,0,1);
+    transition: all 0.3s ease;
+}
+
+.module:hover .led-blue {
+    background-color: var(--led-blue);
+    box-shadow: 0 0 15px var(--led-blue), inset 0 0 5px #fff;
+}
+.module:hover .led-yellow {
+    background-color: var(--led-yellow);
+    box-shadow: 0 0 15px var(--led-yellow), inset 0 0 5px #fff;
+}
+.module:hover .led-red {
+    background-color: var(--led-red);
+    box-shadow: 0 0 15px var(--led-red), inset 0 0 5px #fff;
+}
+
+/* Components */
+.components-list {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.chip {
+    background: var(--chip-bg);
+    padding: 5px 15px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #CCC;
+    position: relative;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+}
+
+.chip::before, .chip::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background-image: repeating-linear-gradient(to bottom, var(--pad-color) 0, var(--pad-color) 2px, transparent 2px, transparent 6px);
+    top: 0;
+}
+
+.chip::before { left: -4px; }
+.chip::after { right: -4px; }
+
+.explanation {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #DDD;
+}
+
+/* Video */
+.media-container {
+    margin-bottom: 1.5rem;
+    border: 2px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #000;
+}
+
+.media-container video {
+    width: 100%;
+    display: block;
+}
+
+/* Firmware Section */
+.firmware-section {
+    background: #05150b;
+    border: 1px solid var(--pcb-trace);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.firmware-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.firmware-header h3 {
+    color: var(--text-code);
+    font-size: 1.1rem;
+}
+
+.copy-btn {
+    background: transparent;
+    color: var(--pcb-trace-active);
+    border: 1px solid var(--pcb-trace-active);
+    padding: 4px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    background: var(--pcb-trace-active);
+    color: #000;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+code {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--text-code);
+    font-size: 0.9rem;
+}
+
+/* Traces between modules */
+.trace-connector {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trace-line {
+    width: 4px;
+    height: 100%;
+    background: var(--pcb-trace);
+    position: relative;
+    overflow: hidden;
+}
+
+.electron {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: var(--led-blue);
+    box-shadow: 0 0 10px var(--led-blue);
+    animation: flowDown 3s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes flowDown {
+    0% { top: -20%; }
+    100% { top: 120%; }
+}
+
+/* Final Animation */
+.final-animation-container {
+    margin-top: 4rem;
+    text-align: center;
+    padding: 2rem;
+    border: 2px dashed var(--pcb-trace);
+    border-radius: 8px;
+}
+
+#trigger-animation {
+    background: var(--pcb-trace-active);
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 4px 0 #b3933b;
+    margin-bottom: 2rem;
+    transition: all 0.1s;
+}
+
+#trigger-animation:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 #b3933b;
+}
+
+.circuit-path {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.node {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #333;
+    border: 3px solid var(--pcb-trace);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: bold;
+    color: #888;
+    transition: all 0.3s;
+    z-index: 2;
+}
+
+.path-line {
+    width: 100px;
+    height: 4px;
+    background: var(--pcb-trace);
+    position: relative;
+    overflow: hidden;
+}
+
+.path-line .current {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--led-blue);
+    box-shadow: 0 0 10px var(--led-blue);
+    opacity: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pcb-board {
+        padding: 1rem;
+        border-left: 2px solid var(--pcb-trace);
+        border-right: 2px solid var(--pcb-trace);
+    }
+    
+    .module {
+        padding: 1rem;
+    }
+
+    .path-line {
+        width: 50px;
+    }
+}
