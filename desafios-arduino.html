@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Desafios de Automação com Arduino | Site de Arduinos</title>
+    <meta name="description" content="Três projetos práticos que aplicam os conceitos de sensores, lógica condicional e controle de atuadores apresentados nesta página de Arduino: iluminação intelig">
+    <meta name="theme-color" content="#0B301A">
+    <link rel="icon" type="image/svg+xml" href="IMG/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="power-rail" id="powerRail" aria-hidden="true"></div>
+
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <a class="brand" href="index.html">
+                <img class="brand-logo" src="IMG/SENAI_Sao_Paulo_logo.png" alt="SENAI São Paulo">
+                <span class="brand-name">Site de Arduinos</span>
+                <span class="brand-tag">Robôs industriais, sensores e IoT</span>
+            </a>
+            <nav class="side-nav" aria-label="Navegação principal"><a class="nav-link" href="index.html">Início</a><details class="nav-group"><summary>Robôs industriais</summary><div class="nav-sub"><a class="nav-link nav-all" href="robos.html">Ver todos os robôs</a><a class="nav-link" href="robos/articulado.html">Robô Articulado</a><a class="nav-link" href="robos/cartesiano.html">Robô Cartesiano</a><a class="nav-link" href="robos/scara.html">Robô SCARA</a><a class="nav-link" href="robos/cilindrico.html">Robô Cilíndrico</a><a class="nav-link" href="robos/delta.html">Robô Delta</a><a class="nav-link" href="robos/polar.html">Robô Polar</a><a class="nav-link" href="robos/colaborativo.html">Robô Colaborativo</a></div></details><details class="nav-group"><summary>Sensores IoT</summary><div class="nav-sub"><a class="nav-link nav-all" href="sensores.html">Ver catálogo completo</a><a class="nav-link" href="sensores/acs712.html">ACS712</a><a class="nav-link" href="sensores/bh1750.html">BH1750</a><a class="nav-link" href="sensores/celula-carga-hx711.html">Célula de Carga + HX711</a><a class="nav-link" href="sensores/dht11.html">DHT11</a><a class="nav-link" href="sensores/dht22.html">DHT22 (AM2302)</a><a class="nav-link" href="sensores/ds18b20.html">DS18B20</a><a class="nav-link" href="sensores/ky-040.html">Encoder Incremental KY-040</a><a class="nav-link" href="sensores/hc-sr04.html">HC-SR04</a><a class="nav-link" href="sensores/ky-037.html">KY-037</a><a class="nav-link" href="sensores/ldr.html">LDR</a><a class="nav-link" href="sensores/lm35.html">LM35</a><a class="nav-link" href="sensores/mfrc522.html">MFRC522 (RFID)</a><a class="nav-link" href="sensores/mq-135.html">MQ-135</a><a class="nav-link" href="sensores/mq-2.html">MQ-2</a><a class="nav-link" href="sensores/pir-hc-sr501.html">PIR HC-SR501</a><a class="nav-link" href="sensores/sw-420.html">SW-420</a><a class="nav-link" href="sensores/lj18a3.html">Sensor Capacitivo LJ18A3</a><a class="nav-link" href="sensores/soil-moisture.html">Sensor Capacitivo de Umidade do Solo</a><a class="nav-link" href="sensores/fc-37.html">Sensor FC-37 (Chuva)</a><a class="nav-link" href="sensores/hall-a3144.html">Sensor Hall A3144</a><a class="nav-link" href="sensores/lj12a3.html">Sensor Indutivo LJ12A3</a><a class="nav-link" href="sensores/chama-ir.html">Sensor de Chama IR</a><a class="nav-link" href="sensores/boia-nivel.html">Sensor de Nível (Boia)</a><a class="nav-link" href="sensores/yf-s201.html">YF-S201</a><a class="nav-link" href="sensores/zmpt101b.html">ZMPT101B</a></div></details><a class="nav-link" href="arduino.html">Arduino</a><a class="nav-link" href="desafios-arduino.html" aria-current="page">Desafios Arduino</a><a class="nav-link" href="desafios-esp8266.html">Desafios ESP8266</a><a class="nav-link" href="referencias.html">Referências</a></nav>
+        </aside>
+
+        <div class="content">
+            <div class="topbar">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <a class="topbar-name" href="index.html">Site de Arduinos</a>
+            </div>
+
+            <main class="pcb-board" id="conteudo">
+<nav class="breadcrumb" aria-label="Você está em"><a href="index.html">Início</a><span class="sep" aria-hidden="true">/</span><a href="arduino.html">Arduino</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Desafios Arduino</span></nav>
+<header class="main-header"><div class="pcb-pad-group" aria-hidden="true"><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div></div><h1>3 Desafios de Automação com Arduino</h1><p class="lead">Três projetos práticos que aplicam os conceitos de sensores, lógica condicional e controle de
+                atuadores apresentados nesta página de Arduino: iluminação inteligente com botão, controle de
+                distância com sensor ultrassônico e um painel de ambiente inteligente com temperatura e umidade.</p></header>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="desafio-01-iluminacao-inteligente"><div class="module-header"><h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>Desafio 01 — Iluminação Inteligente</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">O primeiro desafio introduz o conceito de <strong>controle digital de LEDs</strong> utilizando um
+                botão como entrada. O sistema lê o estado do botão e aciona ou desliga um LED automaticamente,
+                trabalhando os conceitos de entrada/saída digital, resistores de pull-down e lógica booleana
+                aplicada à eletrônica.</p>
+<p class="explanation"><strong>Lógica de funcionamento:</strong> botão pressionado → pino de entrada lê <code>HIGH</code> →
+                Arduino processa o estado e envia sinal ao pino de saída → LED acende; botão solto → pino retorna a
+                <code>LOW</code> → LED apaga.</p>
+<div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-bolt" aria-hidden="true"></i><p>Tensão: 5V</p></div><div class="pin-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><p>Resistor: 220Ω</p></div><div class="pin-card"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><p>LED Output: Pino 13</p></div><div class="pin-card"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i><p>Botão Input: Pino 2</p></div></div>
+<div class="media-container"><video controls preload="metadata"><source src="videos/desafios-arduino/1.mp4" type="video/mp4">Seu navegador não suporta vídeo HTML5.</video></div>
+<div class="firmware-section"><div class="firmware-header"><h3>desafio-01.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">const int pinoBotao = 2;
+const int pinoLED   = 13;
+
+void setup() {
+  pinMode(pinoBotao, INPUT);
+  pinMode(pinoLED,   OUTPUT);
+}
+
+void loop() {
+  int estadoBotao = digitalRead(pinoBotao);
+
+  if (estadoBotao == HIGH) {
+    digitalWrite(pinoLED, HIGH); // LED acende
+  } else {
+    digitalWrite(pinoLED, LOW);  // LED apaga
+  }
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="desafio-02-distancia-iluminacao"><div class="module-header"><h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>Desafio 02 — Distância &amp; Iluminação</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">O sensor ultrassônico <strong>HC-SR04</strong> emite pulsos de 40kHz e mede o tempo de retorno do
+                eco. A distância é calculada pela fórmula <code>d = (t × 0,0343) / 2</code>, onde <em>t</em> é o
+                tempo do pulso em microssegundos. O sensor detecta objetos entre 2 cm e 400 cm, com precisão de
+                ±3mm.</p>
+<p class="explanation">Um <strong>potenciômetro</strong> conectado ao pino <code>A0</code> funciona como divisor de tensão
+                variável, retornando valores entre 0 e 1023 que são mapeados para o brilho do LED com
+                <code>analogWrite()</code>. A combinação sensor + potenciômetro cria um sistema em que a distância
+                detectada altera dinamicamente o comportamento da iluminação.</p>
+<div class="media-container"><video controls preload="metadata"><source src="videos/desafios-arduino/2.mp4" type="video/mp4">Seu navegador não suporta vídeo HTML5.</video></div>
+<div class="firmware-section"><div class="firmware-header"><h3>desafio-02.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">const int trigPin  = 9;
+const int echoPin  = 10;
+const int ledPin   = 6;   // PWM
+const int potPin   = A0;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(ledPin,  OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Leitura do potenciômetro (limiar)
+  int limiar = map(analogRead(potPin), 0, 1023, 5, 50);
+
+  // Disparo do pulso ultrassônico
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Leitura do eco e cálculo da distância
+  long duracao   = pulseIn(echoPin, HIGH);
+  float distancia = duracao * 0.0343 / 2.0;
+
+  Serial.print("Distancia: ");
+  Serial.print(distancia);
+  Serial.print(" cm | Limiar: ");
+  Serial.println(limiar);
+
+  // Controle do LED por distância
+  if (distancia &gt; 0 &amp;&amp; distancia &lt;= limiar) {
+    analogWrite(ledPin, 255); // LED máximo
+  } else if (distancia &lt;= limiar * 2) {
+    int brilho = map(distancia, limiar, limiar * 2, 200, 50);
+    analogWrite(ledPin, brilho); // brilho proporcional
+  } else {
+    analogWrite(ledPin, 0);     // LED apagado
+  }
+
+  delay(100);
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="desafio-03-ambiente-inteligente"><div class="module-header"><h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>Desafio 03 — Ambiente Inteligente</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">O <strong>DHT11</strong> (ou DHT22) é um sensor digital que mede temperatura e umidade relativa do
+                ar por um protocolo de comunicação de um único fio, com precisão de ±2°C e ±5% UR. Neste desafio, o
+                sistema lê continuamente o ambiente e aciona LEDs indicadores conforme os valores medidos, criando
+                um painel visual de conforto térmico.</p>
+<div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-circle" style="color:#2f7bd6;" aria-hidden="true"></i><p>LED azul — Temperatura ≤ 18°C (frio)</p></div><div class="pin-card"><i class="fa-solid fa-circle" style="color:#2fa84f;" aria-hidden="true"></i><p>LED verde — 18°C &lt; T ≤ 26°C (conforto)</p></div><div class="pin-card"><i class="fa-solid fa-circle" style="color:#d64545;" aria-hidden="true"></i><p>LED vermelho — Temperatura &gt; 26°C (calor)</p></div><div class="pin-card"><i class="fa-solid fa-circle" style="color:#e0c22e;" aria-hidden="true"></i><p>LED amarelo — Umidade &gt; 80% (alerta)</p></div></div>
+<div class="media-container"><video controls preload="metadata"><source src="videos/desafios-arduino/3.mp4" type="video/mp4">Seu navegador não suporta vídeo HTML5.</video></div>
+<div class="firmware-section"><div class="firmware-header"><h3>desafio-03.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">#include &lt;DHT.h&gt;
+
+#define DHTPIN  4
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN, DHTTYPE);
+
+const int ledAzul     = 8;
+const int ledVerde    = 9;
+const int ledVermelho = 10;
+const int ledAmarelo  = 11;
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+  pinMode(ledAzul,     OUTPUT);
+  pinMode(ledVerde,    OUTPUT);
+  pinMode(ledVermelho, OUTPUT);
+  pinMode(ledAmarelo,  OUTPUT);
+}
+
+void apagarTodos() {
+  digitalWrite(ledAzul,     LOW);
+  digitalWrite(ledVerde,    LOW);
+  digitalWrite(ledVermelho, LOW);
+  digitalWrite(ledAmarelo,  LOW);
+}
+
+void loop() {
+  delay(2000); // Intervalo mínimo do DHT
+
+  float umidade  = dht.readHumidity();
+  float tempC    = dht.readTemperature();
+
+  if (isnan(umidade) || isnan(tempC)) {
+    Serial.println("Erro ao ler o sensor DHT!");
+    return;
+  }
+
+  Serial.print("Temperatura: "); Serial.print(tempC);   Serial.print(" C | ");
+  Serial.print("Umidade: ");     Serial.print(umidade); Serial.println(" %");
+
+  apagarTodos();
+
+  // Controle de temperatura
+  if (tempC &lt;= 18.0) {
+    digitalWrite(ledAzul,  HIGH); // Frio
+  } else if (tempC &lt;= 26.0) {
+    digitalWrite(ledVerde, HIGH); // Conforto
+  } else {
+    digitalWrite(ledVermelho, HIGH); // Calor
+  }
+
+  // Alerta de umidade (independente da temp)
+  if (umidade &gt; 80.0) {
+    digitalWrite(ledAmarelo, HIGH);
+  }
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="o-que-foi-aprendido"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>O que foi aprendido</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body"><p class="explanation">Competências técnicas desenvolvidas ao longo dos três desafios de automação.</p>
+<div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i><p><strong>Leitura de sensores</strong> — digitais e analógicos, com
+                        <code>digitalRead()</code>, <code>analogRead()</code>, <code>pulseIn()</code> e bibliotecas
+                        específicas como <code>dht.read()</code>.</p></div><div class="pin-card"><i class="fa-solid fa-code-branch" aria-hidden="true"></i><p><strong>Lógica condicional</strong> — estruturas <code>if</code>/<code>else if</code> para
+                        tomada de decisão autônoma com base nos valores lidos.</p></div><div class="pin-card"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><p><strong>Controle de LEDs</strong> — saídas digitais e PWM com <code>digitalWrite()</code>,
+                        <code>analogWrite()</code> e <code>map()</code>.</p></div><div class="pin-card"><i class="fa-solid fa-industry" aria-hidden="true"></i><p><strong>Automação</strong> — sistemas que respondem ao ambiente de forma contínua e
+                        independente, fundamento da IoT e da eletrônica embarcada.</p></div><div class="pin-card"><i class="fa-solid fa-flask" aria-hidden="true"></i><p><strong>Testes e simulação</strong> — depuração com <code>Serial.print()</code>, validação
+                        de leituras no Monitor Serial e iteração de parâmetros no Tinkercad.</p></div></div>
+<p class="quote">"Programar um Arduino é aprender a dialogar com o mundo físico — transformar dados em ação,
+                    sensação em resposta."</p></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<div class="btn-row"><a class="btn" href="desafios-esp8266.html"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>Continuar para a expansão: Desafios ESP8266</a></div>
+            </main>
+
+            <footer class="site-footer"><div class="site-footer-inner"><div class="brand-line"><strong>Site de Arduinos</strong>Robôs industriais, sensores e IoT</div><div class="contact"><a href="https://github.com/Twy1m" target="_blank" rel="noopener" aria-label="GitHub de Matheus Steingraber"><i class="fa-brands fa-square-github" aria-hidden="true"></i></a><div><p>Matheus Steingraber</p><p><span class="email">matheusg.stein@gmail.com</span></p></div></div></div></footer>
+        </div>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+    <button class="to-top" id="toTop" type="button" aria-label="Voltar ao topo" hidden>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+</body>
+
+</html>

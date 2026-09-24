@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Cartesiano | Site de Arduinos</title>
+    <meta name="description" content="O robô Cartesiano é um manipulador que se movimenta em linhas retas ao longo de três eixos perpendiculares (X, Y e Z), formando um volume de trabalho em formato">
+    <meta name="theme-color" content="#0B301A">
+    <link rel="icon" type="image/svg+xml" href="../IMG/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="power-rail" id="powerRail" aria-hidden="true"></div>
+
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <a class="brand" href="../index.html">
+                <img class="brand-logo" src="../IMG/SENAI_Sao_Paulo_logo.png" alt="SENAI São Paulo">
+                <span class="brand-name">Site de Arduinos</span>
+                <span class="brand-tag">Robôs industriais, sensores e IoT</span>
+            </a>
+            <nav class="side-nav" aria-label="Navegação principal"><a class="nav-link" href="../index.html">Início</a><details class="nav-group has-current" open><summary>Robôs industriais</summary><div class="nav-sub"><a class="nav-link nav-all" href="../robos.html">Ver todos os robôs</a><a class="nav-link" href="../robos/articulado.html">Robô Articulado</a><a class="nav-link" href="../robos/cartesiano.html" aria-current="page">Robô Cartesiano</a><a class="nav-link" href="../robos/scara.html">Robô SCARA</a><a class="nav-link" href="../robos/cilindrico.html">Robô Cilíndrico</a><a class="nav-link" href="../robos/delta.html">Robô Delta</a><a class="nav-link" href="../robos/polar.html">Robô Polar</a><a class="nav-link" href="../robos/colaborativo.html">Robô Colaborativo</a></div></details><details class="nav-group"><summary>Sensores IoT</summary><div class="nav-sub"><a class="nav-link nav-all" href="../sensores.html">Ver catálogo completo</a><a class="nav-link" href="../sensores/acs712.html">ACS712</a><a class="nav-link" href="../sensores/bh1750.html">BH1750</a><a class="nav-link" href="../sensores/celula-carga-hx711.html">Célula de Carga + HX711</a><a class="nav-link" href="../sensores/dht11.html">DHT11</a><a class="nav-link" href="../sensores/dht22.html">DHT22 (AM2302)</a><a class="nav-link" href="../sensores/ds18b20.html">DS18B20</a><a class="nav-link" href="../sensores/ky-040.html">Encoder Incremental KY-040</a><a class="nav-link" href="../sensores/hc-sr04.html">HC-SR04</a><a class="nav-link" href="../sensores/ky-037.html">KY-037</a><a class="nav-link" href="../sensores/ldr.html">LDR</a><a class="nav-link" href="../sensores/lm35.html">LM35</a><a class="nav-link" href="../sensores/mfrc522.html">MFRC522 (RFID)</a><a class="nav-link" href="../sensores/mq-135.html">MQ-135</a><a class="nav-link" href="../sensores/mq-2.html">MQ-2</a><a class="nav-link" href="../sensores/pir-hc-sr501.html">PIR HC-SR501</a><a class="nav-link" href="../sensores/sw-420.html">SW-420</a><a class="nav-link" href="../sensores/lj18a3.html">Sensor Capacitivo LJ18A3</a><a class="nav-link" href="../sensores/soil-moisture.html">Sensor Capacitivo de Umidade do Solo</a><a class="nav-link" href="../sensores/fc-37.html">Sensor FC-37 (Chuva)</a><a class="nav-link" href="../sensores/hall-a3144.html">Sensor Hall A3144</a><a class="nav-link" href="../sensores/lj12a3.html">Sensor Indutivo LJ12A3</a><a class="nav-link" href="../sensores/chama-ir.html">Sensor de Chama IR</a><a class="nav-link" href="../sensores/boia-nivel.html">Sensor de Nível (Boia)</a><a class="nav-link" href="../sensores/yf-s201.html">YF-S201</a><a class="nav-link" href="../sensores/zmpt101b.html">ZMPT101B</a></div></details><a class="nav-link" href="../arduino.html">Arduino</a><a class="nav-link" href="../desafios-arduino.html">Desafios Arduino</a><a class="nav-link" href="../desafios-esp8266.html">Desafios ESP8266</a><a class="nav-link" href="../referencias.html">Referências</a></nav>
+        </aside>
+
+        <div class="content">
+            <div class="topbar">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <a class="topbar-name" href="../index.html">Site de Arduinos</a>
+            </div>
+
+            <main class="pcb-board" id="conteudo">
+<nav class="breadcrumb" aria-label="Você está em"><a href="../index.html">Início</a><span class="sep" aria-hidden="true">/</span><a href="../robos.html">Robôs industriais</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Robô Cartesiano</span></nav>
+<header class="main-header device-hero"><div class="pcb-pad-group" aria-hidden="true"><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div></div><div class="device-hero-grid"><figure class="socket"><img src="../IMG/Robo-cartesiano-removebg-preview.png" alt="Imagem do Robô Cartesiano"></figure><div class="device-hero-text"><div class="status-leds" aria-hidden="true"><span class="led led-blue"></span><span class="led led-yellow"></span><span class="led led-red"></span></div><h1>Robô Cartesiano</h1><p class="lead">O robô Cartesiano é um manipulador que se movimenta em linhas retas ao longo de três eixos perpendiculares (X, Y e Z), formando um volume de trabalho em formato de cubo ou retângulo.</p><div class="components-list" aria-label="Nesta página"><a class="chip" href="#conceito">Conceito</a><a class="chip" href="#principio-de-funcionamento">Princípio</a><a class="chip" href="#caracteristicas-tecnicas">Características</a><a class="chip" href="#aplicacoes-industriais">Aplicações</a><a class="chip" href="#integracao-com-automacao-e-iot">Integração IoT</a><a class="chip" href="#modelos-comerciais">Modelos comerciais</a></div></div></div></header>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="conceito"><div class="module-header"><h2><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>Conceito</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">Também chamado de robô gantry (pórtico) ou robô linear, o robô Cartesiano utiliza o sistema de coordenadas cartesianas para posicionar seu efetuador terminal. Por trabalhar apenas com movimentos lineares, ele é considerado um dos tipos mais simples e intuitivos de robô industrial, sendo amplamente utilizado quando precisão e previsibilidade de trajetória são mais importantes do que velocidade de movimentos complexos.</p></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="principio-de-funcionamento"><div class="module-header"><h2><i class="fa-solid fa-gear" aria-hidden="true"></i>Princípio de funcionamento</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">Cada um dos três eixos (X, Y e Z) é acionado de forma independente por um atuador linear próprio, que pode ser um fuso de esferas, uma correia dentada ou um atuador elétrico. Um controlador (CLP ou controlador dedicado) coordena o movimento simultâneo dos três eixos para posicionar a ferramenta em qualquer ponto dentro do volume retangular de trabalho, sem a necessidade de cálculos complexos de cinemática, já que os eixos são ortogonais entre si.</p></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="caracteristicas-tecnicas"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>Características técnicas</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body"><div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-bullseye" aria-hidden="true"></i><p>Alta precisão e repetibilidade, frequentemente inferior a 0,05 mm</p></div><div class="pin-card"><i class="fa-solid fa-cubes" aria-hidden="true"></i><p>Estrutura modular e escalável, com cursos de centímetros a vários metros</p></div><div class="pin-card"><i class="fa-solid fa-weight-hanging" aria-hidden="true"></i><p>Capacidade de carga de poucos kg até centenas de kg, conforme o porte</p></div><div class="pin-card"><i class="fa-solid fa-gear" aria-hidden="true"></i><p>3 eixos lineares independentes (X, Y, Z)</p></div><div class="pin-card"><i class="fa-solid fa-display" aria-hidden="true"></i><p>Programação simples, geralmente ponto a ponto</p></div><div class="pin-card"><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i><p>Volume de trabalho em formato retangular (cúbico)</p></div></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="aplicacoes-industriais"><div class="module-header"><h2><i class="fa-solid fa-industry" aria-hidden="true"></i>Aplicações industriais</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body"><div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-industry" aria-hidden="true"></i><p>Pick and place de peças e embalagens</p></div><div class="pin-card"><i class="fa-solid fa-fill-drip" aria-hidden="true"></i><p>Dispensação de adesivos, tintas e selantes</p></div><div class="pin-card"><i class="fa-solid fa-scissors" aria-hidden="true"></i><p>Corte CNC e usinagem leve</p></div><div class="pin-card"><i class="fa-solid fa-cube" aria-hidden="true"></i><p>Impressão 3D e prototipagem</p></div><div class="pin-card"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i><p>Paletização de produtos</p></div><div class="pin-card"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><p>Inspeção dimensional automatizada</p></div></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="integracao-com-automacao-e-iot"><div class="module-header"><h2><i class="fa-solid fa-network-wired" aria-hidden="true"></i>Integração com automação e IoT</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body"><p class="explanation">Nos robôs cartesianos modernos, encoders instalados em cada eixo linear enviam continuamente dados de posição e velocidade para um CLP ou controlador de movimento, que por sua vez pode publicar essas informações em uma rede industrial.</p>
+<p class="explanation">Essa conectividade permite o monitoramento remoto do ciclo de produção, o acompanhamento de indicadores como o OEE (Overall Equipment Effectiveness) e a manutenção preditiva, já que desvios de corrente ou vibração nos motores podem indicar desgaste de componentes antes de uma falha.</p>
+<div class="components-list"><span class="chip">Ethernet Industrial</span><span class="chip">MQTT</span><span class="chip">OPC UA</span><span class="chip">Modbus TCP</span></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="modelos-comerciais"><div class="module-header"><h2><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>Modelos comerciais</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body"><div class="part-grid"><article class="part-card"><div class="part-maker">IAI Corporation</div><h4 class="part-name">Linha RCP / TT (atuadores e robôs cartesianos elétricos)</h4><ul><li>Atuadores elétricos de alta precisão</li><li>Configurações de 1 a 3 eixos combináveis</li><li>Controladores com interface para redes industriais</li></ul></article><article class="part-card"><div class="part-maker">Yamaha Motor Robotics</div><h4 class="part-name">Linha de robôs Cartesianos XY e módulos lineares</h4><ul><li>Módulos lineares combináveis para X, Y e Z</li><li>Alta velocidade de posicionamento</li><li>Uso comum em eletrônica e embalagem</li></ul></article><article class="part-card"><div class="part-maker">Bosch Rexroth</div><h4 class="part-name">Sistemas de movimento linear EXAX / EXCM (gantry)</h4><ul><li>Estrutura em pórtico (gantry) modular</li><li>Grandes cursos para áreas de trabalho amplas</li><li>Integração nativa com CLPs Bosch Rexroth</li></ul></article></div></div></section>
+<nav class="chain-nav" aria-label="Navegação entre páginas"><a class="prev" href="articulado.html" rel="prev"><small>← Robô anterior</small><strong>Robô Articulado</strong></a><a class="next" href="scara.html" rel="next"><small>Próximo robô →</small><strong>Robô SCARA</strong></a></nav>
+            </main>
+
+            <footer class="site-footer"><div class="site-footer-inner"><div class="brand-line"><strong>Site de Arduinos</strong>Robôs industriais, sensores e IoT</div><div class="contact"><a href="https://github.com/Twy1m" target="_blank" rel="noopener" aria-label="GitHub de Matheus Steingraber"><i class="fa-brands fa-square-github" aria-hidden="true"></i></a><div><p>Matheus Steingraber</p><p><span class="email">matheusg.stein@gmail.com</span></p></div></div></div></footer>
+        </div>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+    <button class="to-top" id="toTop" type="button" aria-label="Voltar ao topo" hidden>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+</body>
+
+</html>

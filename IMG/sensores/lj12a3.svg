@@ -1,0 +1,30 @@
+<svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração do sensor Sensor Indutivo LJ12A3">
+  <rect x="16" y="14" width="208" height="150" rx="16" fill="#0e5c8a"/>
+  <rect x="16" y="14" width="208" height="150" rx="16" fill="none" stroke="#083a58" stroke-width="2"/>
+  <rect x="26" y="24" width="60" height="14" rx="3" fill="#ffffff" opacity="0.12"/>
+  <text x="30" y="150" font-family="Consolas, monospace" font-size="11" fill="#ffffff" opacity="0.55">LJ12A3</text>
+  <circle cx="120" cy="88" r="46" fill="#ffffff"/>
+  <g transform="translate(120,88)">
+    
+    <path d="M -14 -14 A 20 20 0 0 0 -14 14" fill="none" stroke="#0070c9" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 14 -14 A 20 20 0 0 1 14 14" fill="none" stroke="#ff8a00" stroke-width="6" stroke-linecap="round"/>
+    <rect x="-13" y="-19" width="6" height="7" fill="#0070c9"/>
+    <rect x="-13" y="12" width="6" height="7" fill="#0070c9"/>
+    <rect x="7" y="-19" width="6" height="7" fill="#ff8a00"/>
+    <rect x="7" y="12" width="6" height="7" fill="#ff8a00"/>
+    <circle cx="0" cy="0" r="4" fill="#0070c9"/>
+    
+  </g>
+  <g fill="#e8b923">
+    <rect x="45" y="164" width="10" height="18" rx="2"/>
+    <rect x="85" y="164" width="10" height="18" rx="2"/>
+    <rect x="145" y="164" width="10" height="18" rx="2"/>
+    <rect x="185" y="164" width="10" height="18" rx="2"/>
+  </g>
+  <g font-family="Montserrat, sans-serif" font-size="9" fill="#0e5c8a" text-anchor="middle">
+    <text x="50" y="198">VCC</text>
+    <text x="90" y="198">GND</text>
+    <text x="150" y="198">SIG</text>
+    <text x="190" y="198">—</text>
+  </g>
+</svg>

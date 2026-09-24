@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LM35 | Site de Arduinos</title>
+    <meta name="description" content="O LM35 é um sensor de temperatura analógico de precisão, cuja tensão de saída é linearmente proporcional à temperatura medida em graus Celsius, sem necessidade ">
+    <meta name="theme-color" content="#0B301A">
+    <link rel="icon" type="image/svg+xml" href="../IMG/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="power-rail" id="powerRail" aria-hidden="true"></div>
+
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <a class="brand" href="../index.html">
+                <img class="brand-logo" src="../IMG/SENAI_Sao_Paulo_logo.png" alt="SENAI São Paulo">
+                <span class="brand-name">Site de Arduinos</span>
+                <span class="brand-tag">Robôs industriais, sensores e IoT</span>
+            </a>
+            <nav class="side-nav" aria-label="Navegação principal"><a class="nav-link" href="../index.html">Início</a><details class="nav-group"><summary>Robôs industriais</summary><div class="nav-sub"><a class="nav-link nav-all" href="../robos.html">Ver todos os robôs</a><a class="nav-link" href="../robos/articulado.html">Robô Articulado</a><a class="nav-link" href="../robos/cartesiano.html">Robô Cartesiano</a><a class="nav-link" href="../robos/scara.html">Robô SCARA</a><a class="nav-link" href="../robos/cilindrico.html">Robô Cilíndrico</a><a class="nav-link" href="../robos/delta.html">Robô Delta</a><a class="nav-link" href="../robos/polar.html">Robô Polar</a><a class="nav-link" href="../robos/colaborativo.html">Robô Colaborativo</a></div></details><details class="nav-group has-current" open><summary>Sensores IoT</summary><div class="nav-sub"><a class="nav-link nav-all" href="../sensores.html">Ver catálogo completo</a><a class="nav-link" href="../sensores/acs712.html">ACS712</a><a class="nav-link" href="../sensores/bh1750.html">BH1750</a><a class="nav-link" href="../sensores/celula-carga-hx711.html">Célula de Carga + HX711</a><a class="nav-link" href="../sensores/dht11.html">DHT11</a><a class="nav-link" href="../sensores/dht22.html">DHT22 (AM2302)</a><a class="nav-link" href="../sensores/ds18b20.html">DS18B20</a><a class="nav-link" href="../sensores/ky-040.html">Encoder Incremental KY-040</a><a class="nav-link" href="../sensores/hc-sr04.html">HC-SR04</a><a class="nav-link" href="../sensores/ky-037.html">KY-037</a><a class="nav-link" href="../sensores/ldr.html">LDR</a><a class="nav-link" href="../sensores/lm35.html" aria-current="page">LM35</a><a class="nav-link" href="../sensores/mfrc522.html">MFRC522 (RFID)</a><a class="nav-link" href="../sensores/mq-135.html">MQ-135</a><a class="nav-link" href="../sensores/mq-2.html">MQ-2</a><a class="nav-link" href="../sensores/pir-hc-sr501.html">PIR HC-SR501</a><a class="nav-link" href="../sensores/sw-420.html">SW-420</a><a class="nav-link" href="../sensores/lj18a3.html">Sensor Capacitivo LJ18A3</a><a class="nav-link" href="../sensores/soil-moisture.html">Sensor Capacitivo de Umidade do Solo</a><a class="nav-link" href="../sensores/fc-37.html">Sensor FC-37 (Chuva)</a><a class="nav-link" href="../sensores/hall-a3144.html">Sensor Hall A3144</a><a class="nav-link" href="../sensores/lj12a3.html">Sensor Indutivo LJ12A3</a><a class="nav-link" href="../sensores/chama-ir.html">Sensor de Chama IR</a><a class="nav-link" href="../sensores/boia-nivel.html">Sensor de Nível (Boia)</a><a class="nav-link" href="../sensores/yf-s201.html">YF-S201</a><a class="nav-link" href="../sensores/zmpt101b.html">ZMPT101B</a></div></details><a class="nav-link" href="../arduino.html">Arduino</a><a class="nav-link" href="../desafios-arduino.html">Desafios Arduino</a><a class="nav-link" href="../desafios-esp8266.html">Desafios ESP8266</a><a class="nav-link" href="../referencias.html">Referências</a></nav>
+        </aside>
+
+        <div class="content">
+            <div class="topbar">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <a class="topbar-name" href="../index.html">Site de Arduinos</a>
+            </div>
+
+            <main class="pcb-board" id="conteudo">
+<nav class="breadcrumb" aria-label="Você está em"><a href="../index.html">Início</a><span class="sep" aria-hidden="true">/</span><a href="../sensores.html">Sensores IoT</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">LM35</span></nav>
+<header class="main-header device-hero"><div class="pcb-pad-group" aria-hidden="true"><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div></div><div class="device-hero-grid"><figure class="socket"><img src="../IMG/sensores/lm35.svg" alt="Ilustração do sensor LM35"></figure><div class="device-hero-text"><div class="status-leds" aria-hidden="true"><span class="led led-blue"></span><span class="led led-yellow"></span><span class="led led-red"></span></div><h1>LM35</h1><div class="components-list"><span class="chip chip-gold"><i class="fa-solid fa-temperature-half" aria-hidden="true"></i>Temperatura</span></div><div class="components-list" aria-label="Nesta página"><a class="chip" href="#conceito">Conceito</a><a class="chip" href="#principio-de-funcionamento">Princípio</a><a class="chip" href="#especificacoes-tecnicas">Especificações</a><a class="chip" href="#aplicacoes-industriais-e-iot">Aplicações</a><a class="chip" href="#exemplo-de-utilizacao-em-um-projeto">Exemplo de uso</a><a class="chip" href="#fabricantes-e-modelos-comerciais">Modelos comerciais</a></div></div></div></header>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="conceito"><div class="module-header"><h2><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>Conceito</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">O LM35 é um sensor de temperatura analógico de precisão, cuja tensão de saída é linearmente proporcional à temperatura medida em graus Celsius, sem necessidade de calibração externa.</p></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="principio-de-funcionamento"><div class="module-header"><h2><i class="fa-solid fa-gear" aria-hidden="true"></i>Princípio de funcionamento</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">Seu funcionamento é baseado na relação previsível entre a tensão base-emissor de uma junção de transistor bipolar e a temperatura; o circuito interno já compensa e lineariza essa relação, entregando na saída uma tensão de aproximadamente 10mV para cada grau Celsius acima de 0°C.</p></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="especificacoes-tecnicas"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>Especificações técnicas</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body"><div class="signal-box"><span class="chip chip-lg"><i class="fa-solid fa-signal" aria-hidden="true"></i>Analógico (tensão proporcional, 10mV/°C)</span><p>Saída de tensão analógica linear que deve ser lida por uma entrada ADC do microcontrolador (ex.: A0 do Arduino).</p></div>
+<div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><p>Tensão de alimentação: 4 – 30V</p></div><div class="pin-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><p>Faixa de medição: -55 a 150°C</p></div><div class="pin-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><p>Precisão: ±0,5°C a 25°C</p></div><div class="pin-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><p>Sensibilidade de saída: 10mV/°C</p></div><div class="pin-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><p>Baixa impedância de saída (~0,1Ω para 1mA de carga)</p></div><div class="pin-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><p>Encapsulamento TO-92 (3 pinos)</p></div></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="aplicacoes-industriais-e-iot"><div class="module-header"><h2><i class="fa-solid fa-industry" aria-hidden="true"></i>Aplicações industriais e IoT</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body"><div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-industry" aria-hidden="true"></i><p>Monitoramento de temperatura ambiente e de equipamentos</p></div><div class="pin-card"><i class="fa-solid fa-industry" aria-hidden="true"></i><p>Proteção térmica de motores e painéis elétricos</p></div><div class="pin-card"><i class="fa-solid fa-industry" aria-hidden="true"></i><p>Controle de fornos e estufas de baixo custo</p></div><div class="pin-card"><i class="fa-solid fa-industry" aria-hidden="true"></i><p>Termômetros digitais educacionais</p></div></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="exemplo-de-utilizacao-em-um-projeto"><div class="module-header"><h2><i class="fa-solid fa-flask" aria-hidden="true"></i>Exemplo de utilização em um projeto</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body"><p class="explanation">Conectado ao pino A0 do Arduino, o valor lido por analogRead() é convertido para graus Celsius com a fórmula (leitura * 5.0 / 1023.0) * 100, exibindo a temperatura em um display LCD e acionando um cooler quando o valor ultrapassa 40°C.</p></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="fabricantes-e-modelos-comerciais"><div class="module-header"><h2><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>Fabricantes e modelos comerciais</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body"><div class="part-grid"><article class="part-card"><div class="part-maker">Texas Instruments</div><h4 class="part-name">LM35DZ / LM35CZ</h4><ul><li>Chip original de referência do mercado</li><li>Encapsulamento TO-92</li><li>Amplamente usado em kits didáticos</li></ul></article></div></div></section>
+<nav class="chain-nav" aria-label="Navegação entre páginas"><a class="prev" href="ldr.html" rel="prev"><small>← Sensor anterior</small><strong>LDR</strong></a><a class="next" href="mfrc522.html" rel="next"><small>Próximo sensor →</small><strong>MFRC522 (RFID)</strong></a></nav>
+            </main>
+
+            <footer class="site-footer"><div class="site-footer-inner"><div class="brand-line"><strong>Site de Arduinos</strong>Robôs industriais, sensores e IoT</div><div class="contact"><a href="https://github.com/Twy1m" target="_blank" rel="noopener" aria-label="GitHub de Matheus Steingraber"><i class="fa-brands fa-square-github" aria-hidden="true"></i></a><div><p>Matheus Steingraber</p><p><span class="email">matheusg.stein@gmail.com</span></p></div></div></div></footer>
+        </div>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+    <button class="to-top" id="toTop" type="button" aria-label="Voltar ao topo" hidden>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+</body>
+
+</html>

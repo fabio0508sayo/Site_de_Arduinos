@@ -1,0 +1,27 @@
+<svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração do sensor Sensor FC-37 (Chuva)">
+  <rect x="16" y="14" width="208" height="150" rx="16" fill="#0e5c8a"/>
+  <rect x="16" y="14" width="208" height="150" rx="16" fill="none" stroke="#083a58" stroke-width="2"/>
+  <rect x="26" y="24" width="60" height="14" rx="3" fill="#ffffff" opacity="0.12"/>
+  <text x="30" y="150" font-family="Consolas, monospace" font-size="11" fill="#ffffff" opacity="0.55">FC-37</text>
+  <circle cx="120" cy="88" r="46" fill="#ffffff"/>
+  <g transform="translate(120,88)">
+    
+    <path d="M -16 -4 Q -20 -14 -10 -15 Q -8 -22 2 -20 Q 14 -22 16 -12 Q 24 -10 20 -2 Q 22 4 14 4 L -12 4 Q -20 4 -16 -4 Z" fill="#0070c9"/>
+    <line x1="-8" y1="10" x2="-12" y2="20" stroke="#ff8a00" stroke-width="3" stroke-linecap="round"/>
+    <line x1="2" y1="10" x2="-2" y2="20" stroke="#ff8a00" stroke-width="3" stroke-linecap="round"/>
+    <line x1="12" y1="10" x2="8" y2="20" stroke="#ff8a00" stroke-width="3" stroke-linecap="round"/>
+    
+  </g>
+  <g fill="#e8b923">
+    <rect x="45" y="164" width="10" height="18" rx="2"/>
+    <rect x="85" y="164" width="10" height="18" rx="2"/>
+    <rect x="145" y="164" width="10" height="18" rx="2"/>
+    <rect x="185" y="164" width="10" height="18" rx="2"/>
+  </g>
+  <g font-family="Montserrat, sans-serif" font-size="9" fill="#0e5c8a" text-anchor="middle">
+    <text x="50" y="198">VCC</text>
+    <text x="90" y="198">GND</text>
+    <text x="150" y="198">SIG</text>
+    <text x="190" y="198">—</text>
+  </g>
+</svg>

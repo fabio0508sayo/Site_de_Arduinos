@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expansão de Projetos — Desafios com ESP8266 | Site de Arduinos</title>
+    <meta name="description" content="Continuando os três primeiros desafios de automação, esta expansão apresenta quatro novos projetos físicos montados em protoboard: um sintetizador de melodias c">
+    <meta name="theme-color" content="#0B301A">
+    <link rel="icon" type="image/svg+xml" href="IMG/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="power-rail" id="powerRail" aria-hidden="true"></div>
+
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <a class="brand" href="index.html">
+                <img class="brand-logo" src="IMG/SENAI_Sao_Paulo_logo.png" alt="SENAI São Paulo">
+                <span class="brand-name">Site de Arduinos</span>
+                <span class="brand-tag">Robôs industriais, sensores e IoT</span>
+            </a>
+            <nav class="side-nav" aria-label="Navegação principal"><a class="nav-link" href="index.html">Início</a><details class="nav-group"><summary>Robôs industriais</summary><div class="nav-sub"><a class="nav-link nav-all" href="robos.html">Ver todos os robôs</a><a class="nav-link" href="robos/articulado.html">Robô Articulado</a><a class="nav-link" href="robos/cartesiano.html">Robô Cartesiano</a><a class="nav-link" href="robos/scara.html">Robô SCARA</a><a class="nav-link" href="robos/cilindrico.html">Robô Cilíndrico</a><a class="nav-link" href="robos/delta.html">Robô Delta</a><a class="nav-link" href="robos/polar.html">Robô Polar</a><a class="nav-link" href="robos/colaborativo.html">Robô Colaborativo</a></div></details><details class="nav-group"><summary>Sensores IoT</summary><div class="nav-sub"><a class="nav-link nav-all" href="sensores.html">Ver catálogo completo</a><a class="nav-link" href="sensores/acs712.html">ACS712</a><a class="nav-link" href="sensores/bh1750.html">BH1750</a><a class="nav-link" href="sensores/celula-carga-hx711.html">Célula de Carga + HX711</a><a class="nav-link" href="sensores/dht11.html">DHT11</a><a class="nav-link" href="sensores/dht22.html">DHT22 (AM2302)</a><a class="nav-link" href="sensores/ds18b20.html">DS18B20</a><a class="nav-link" href="sensores/ky-040.html">Encoder Incremental KY-040</a><a class="nav-link" href="sensores/hc-sr04.html">HC-SR04</a><a class="nav-link" href="sensores/ky-037.html">KY-037</a><a class="nav-link" href="sensores/ldr.html">LDR</a><a class="nav-link" href="sensores/lm35.html">LM35</a><a class="nav-link" href="sensores/mfrc522.html">MFRC522 (RFID)</a><a class="nav-link" href="sensores/mq-135.html">MQ-135</a><a class="nav-link" href="sensores/mq-2.html">MQ-2</a><a class="nav-link" href="sensores/pir-hc-sr501.html">PIR HC-SR501</a><a class="nav-link" href="sensores/sw-420.html">SW-420</a><a class="nav-link" href="sensores/lj18a3.html">Sensor Capacitivo LJ18A3</a><a class="nav-link" href="sensores/soil-moisture.html">Sensor Capacitivo de Umidade do Solo</a><a class="nav-link" href="sensores/fc-37.html">Sensor FC-37 (Chuva)</a><a class="nav-link" href="sensores/hall-a3144.html">Sensor Hall A3144</a><a class="nav-link" href="sensores/lj12a3.html">Sensor Indutivo LJ12A3</a><a class="nav-link" href="sensores/chama-ir.html">Sensor de Chama IR</a><a class="nav-link" href="sensores/boia-nivel.html">Sensor de Nível (Boia)</a><a class="nav-link" href="sensores/yf-s201.html">YF-S201</a><a class="nav-link" href="sensores/zmpt101b.html">ZMPT101B</a></div></details><a class="nav-link" href="arduino.html">Arduino</a><a class="nav-link" href="desafios-arduino.html">Desafios Arduino</a><a class="nav-link" href="desafios-esp8266.html" aria-current="page">Desafios ESP8266</a><a class="nav-link" href="referencias.html">Referências</a></nav>
+        </aside>
+
+        <div class="content">
+            <div class="topbar">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <a class="topbar-name" href="index.html">Site de Arduinos</a>
+            </div>
+
+            <main class="pcb-board" id="conteudo">
+<nav class="breadcrumb" aria-label="Você está em"><a href="index.html">Início</a><span class="sep" aria-hidden="true">/</span><a href="desafios-arduino.html">Desafios Arduino</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Desafios ESP8266</span></nav>
+<header class="main-header"><div class="pcb-pad-group" aria-hidden="true"><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div></div><h1>Expansão de Projetos — Desafios com ESP8266</h1><p class="lead">Continuando os três primeiros desafios de automação, esta expansão apresenta quatro novos
+                projetos físicos montados em protoboard: um sintetizador de melodias com buzzers, um sensor
+                ultrassônico que altera a cor de LEDs conforme a distância, um monitor de temperatura com
+                indicação visual e um contador construído com <strong>ESP8266</strong>, dois botões e um
+                display de 7 segmentos.</p></header>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="o-que-e-o-esp8266"><div class="module-header"><h2><i class="fa-solid fa-wifi" aria-hidden="true"></i>O que é o ESP8266?</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body"><p class="explanation">Um resumo rápido do microcontrolador usado no Desafio 07, para quem está vendo essa placa pela
+            primeira vez.</p>
+<p class="explanation">O <strong>ESP8266</strong> é um microcontrolador de baixo custo com <strong>Wi-Fi integrado</strong>,
+                muito usado em projetos de IoT porque, além de ler sensores e controlar atuadores como um
+                Arduino, também consegue se conectar diretamente a uma rede sem fio, enviar dados para a
+                internet e hospedar páginas web — sem precisar de módulos externos. A versão mais popular para
+                prototipagem é a placa de desenvolvimento <strong>NodeMCU</strong>, que expõe os pinos do chip
+                em um formato semelhante ao do Arduino, facilitando o uso em protoboard.</p>
+<div class="part-grid"><article class="part-card"><div class="part-maker">Processamento</div><h4 class="part-name">Chip e clock</h4><ul><li>Microcontrolador Tensilica L106, 32 bits</li><li>Clock de até 80 MHz (overclock para 160 MHz)</li><li>Memória flash externa de 4 MB (varia por placa)</li></ul></article><article class="part-card"><div class="part-maker">Conectividade</div><h4 class="part-name">Wi-Fi integrado</h4><ul><li>Wi-Fi 802.11 b/g/n (2,4 GHz) embutido no chip</li><li>Pode atuar como cliente (station) ou ponto de acesso (AP)</li><li>Ideal para enviar dados a um servidor ou painel web</li></ul></article><article class="part-card"><div class="part-maker">Elétrico</div><h4 class="part-name">Tensão e pinos</h4><ul><li>Lógica de <strong>3,3V</strong> (diferente dos 5V do Arduino Uno)</li><li>Alimentação via USB (5V) com regulador interno para 3,3V</li><li>Poucos pinos GPIO utilizáveis: apenas <strong>1 entrada analógica</strong> (A0)</li></ul></article><article class="part-card"><div class="part-maker">Na prática</div><h4 class="part-name">ESP8266 x Arduino Uno</h4><ul><li>Arduino Uno: 5V, sem Wi-Fi, mais entradas analógicas (A0–A5)</li><li>ESP8266: 3,3V, Wi-Fi nativo, ótimo para projetos conectados</li><li>Ambos são programados pela IDE Arduino, em C/C++</li></ul></article></div>
+<p class="explanation">Nos primeiros três desafios (abaixo, na página anterior) os circuitos usam a
+                lógica de 5V do Arduino. No <strong>Desafio 07</strong>, a numeração dos pinos muda: a placa NodeMCU
+                identifica seus GPIOs como <code>D0</code> a <code>D8</code> (em vez de números diretos), e cada
+                <code>D</code> corresponde a um GPIO real do chip — por exemplo, <code>D1</code> é o
+                <code>GPIO5</code> e <code>D2</code> é o <code>GPIO4</code>. É essa numeração <code>D</code> que é
+                usada no código do contador mais abaixo.</p></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="desafio-04-sintetizador-de-melodia-com-buzzers"><div class="module-header"><h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>Desafio 04 — Sintetizador de Melodia com Buzzers</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">Este projeto usa a função <code>tone()</code> do Arduino para gerar ondas quadradas em
+                frequências específicas, fazendo os <strong>buzzers passivos</strong> reproduzirem notas
+                musicais. A melodia é armazenada como dois vetores paralelos — um com a <strong>frequência de
+                cada nota</strong> (em Hz) e outro com a <strong>duração</strong> de cada nota (em
+                milissegundos) — que são percorridos em um laço, tocando uma nota de cada vez.</p>
+<p class="explanation">O circuito combina <strong>três buzzers ligados em paralelo</strong> ao mesmo pino de saída, o
+                que aumenta o volume e dá mais corpo ao som, e um <strong>LED indicador</strong> que pisca no
+                ritmo da melodia, servindo como referência visual da batida.</p>
+<div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-bolt" aria-hidden="true"></i><p>Tensão: 5V</p></div><div class="pin-card"><i class="fa-solid fa-volume-high" aria-hidden="true"></i><p>3 buzzers passivos em paralelo</p></div><div class="pin-card"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><p>LED de ritmo: Pino 13</p></div><div class="pin-card"><i class="fa-solid fa-wave-square" aria-hidden="true"></i><p>Função: tone() / noTone()</p></div></div>
+<div class="media-container"><video controls preload="metadata"><source src="videos/desafios-esp8266/buzzer-kerosene.mp4" type="video/mp4">Seu navegador não suporta vídeo HTML5.</video></div>
+<p class="media-caption"><i class="fa-solid fa-circle-info"></i> A melodia do vídeo foi montada por ouvido a partir da
+                música "Kerosene" (Crystal Castles). O código abaixo mostra a técnica de reprodução com
+                <code>tone()</code> usando uma melodia de exemplo — troque os vetores <code>notas[]</code> e
+                <code>duracoes[]</code> pela sequência de notas que você quiser tocar.</p>
+<div class="firmware-section"><div class="firmware-header"><h3>desafio-04.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">const int pinoBuzzer = 8;   // os 3 buzzers estão ligados neste mesmo pino
+const int pinoLED    = 13;  // LED que pisca no ritmo da melodia
+
+// Frequências das notas (Hz) — troque pela melodia desejada
+int notas[]     = { 330, 294, 262, 294, 330, 330, 330,
+                     294, 294, 294, 330, 392, 392 };
+
+// Duração de cada nota (ms)
+int duracoes[]  = { 300, 300, 300, 300, 300, 300, 300,
+                     300, 300, 300, 400, 400, 600 };
+
+const int totalNotas = sizeof(notas) / sizeof(notas[0]);
+
+void setup() {
+  pinMode(pinoLED, OUTPUT);
+}
+
+void loop() {
+  for (int i = 0; i &lt; totalNotas; i++) {
+    tone(pinoBuzzer, notas[i], duracoes[i]); // toca a nota
+
+    digitalWrite(pinoLED, HIGH); // pisca o LED junto com a nota
+    delay(duracoes[i] * 0.9);    // toca por 90% da duração
+    digitalWrite(pinoLED, LOW);
+    delay(duracoes[i] * 0.1);    // pequeno silêncio entre notas
+  }
+
+  noTone(pinoBuzzer);
+  delay(1500); // pausa antes de repetir a melodia
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="desafio-05-sensor-ultrassonico-com-troca-de-cor-de-led"><div class="module-header"><h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>Desafio 05 — Sensor Ultrassônico com Troca de Cor de LED</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">O <strong>HC-SR04</strong> mede a distância de um objeto emitindo um pulso ultrassônico de
+                40kHz e cronometrando o tempo até o eco retornar, com a fórmula
+                <code>distância = (tempo × 0,0343) / 2</code>. Neste desafio, a leitura de distância é dividida
+                em três faixas, e cada faixa acende um LED de cor diferente — criando um indicador visual de
+                proximidade, como um "sinal de trânsito" que responde à mão do usuário se aproximando do
+                sensor.</p>
+<div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i><p>Trig: Pino 9 / Echo: Pino 10</p></div><div class="pin-card"><i class="fa-solid fa-ruler" aria-hidden="true"></i><p>Alcance: 2cm a 400cm</p></div><div class="pin-card"><i class="fa-solid fa-circle" style="color:#2fa84f;" aria-hidden="true"></i><p>Verde — longe (&gt; 20cm)</p></div><div class="pin-card"><i class="fa-solid fa-circle" style="color:#d64545;" aria-hidden="true"></i><p>Vermelho — perto (&lt; 8cm)</p></div></div>
+<div class="media-container"><video controls preload="metadata"><source src="videos/desafios-esp8266/ultrassonico-leds.mp4" type="video/mp4">Seu navegador não suporta vídeo HTML5.</video></div>
+<div class="firmware-section"><div class="firmware-header"><h3>desafio-05.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">const int trigPin = 9;
+const int echoPin = 10;
+
+const int ledVerde    = 4;  // longe
+const int ledAmarelo  = 5;  // médio
+const int ledVermelho = 6;  // perto
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(ledVerde,    OUTPUT);
+  pinMode(ledAmarelo,  OUTPUT);
+  pinMode(ledVermelho, OUTPUT);
+  Serial.begin(9600);
+}
+
+float medirDistancia() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  long duracao = pulseIn(echoPin, HIGH);
+  return duracao * 0.0343 / 2.0; // cm
+}
+
+void loop() {
+  float distancia = medirDistancia();
+  Serial.print("Distancia: ");
+  Serial.print(distancia);
+  Serial.println(" cm");
+
+  digitalWrite(ledVerde,    LOW);
+  digitalWrite(ledAmarelo,  LOW);
+  digitalWrite(ledVermelho, LOW);
+
+  if (distancia &gt; 0 &amp;&amp; distancia &lt; 8) {
+    digitalWrite(ledVermelho, HIGH);   // objeto muito perto
+  } else if (distancia &lt; 20) {
+    digitalWrite(ledAmarelo, HIGH);    // distância média
+  } else {
+    digitalWrite(ledVerde, HIGH);      // objeto longe / sem detecção
+  }
+
+  delay(150);
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="desafio-06-monitor-de-temperatura-com-indicacao-por-led"><div class="module-header"><h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>Desafio 06 — Monitor de Temperatura com Indicação por LED</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">Este projeto usa um sensor de temperatura <strong>analógico (LM35)</strong> para ler a
+                temperatura ambiente continuamente. O LM35 entrega uma tensão proporcional à temperatura
+                (10mV por °C), que é lida pelo Arduino com <code>analogRead()</code> e convertida para graus
+                Celsius. O valor é exibido em tempo real no <strong>Monitor Serial</strong> — como aparece no
+                vídeo — e três LEDs indicam visualmente a faixa de temperatura detectada.</p>
+<div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-thermometer-half" aria-hidden="true"></i><p>Sensor: LM35 (analógico)</p></div><div class="pin-card"><i class="fa-solid fa-circle" style="color:#2f7bd6;" aria-hidden="true"></i><p>ledFrio — T ≤ 20°C</p></div><div class="pin-card"><i class="fa-solid fa-circle" style="color:#2fa84f;" aria-hidden="true"></i><p>ledAmbiente — 20°C a 28°C</p></div><div class="pin-card"><i class="fa-solid fa-circle" style="color:#d64545;" aria-hidden="true"></i><p>ledQuente — T &gt; 28°C</p></div></div>
+<div class="media-container"><video controls preload="metadata"><source src="videos/desafios-esp8266/sensor-temperatura.mp4" type="video/mp4">Seu navegador não suporta vídeo HTML5.</video></div>
+<div class="firmware-section"><div class="firmware-header"><h3>desafio-06.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">const int pinoLM35 = A0;
+
+const int ledFrio     = 8;
+const int ledAmbiente = 9;
+const int ledQuente   = 10;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledFrio,     OUTPUT);
+  pinMode(ledAmbiente, OUTPUT);
+  pinMode(ledQuente,   OUTPUT);
+}
+
+void loop() {
+  int leitura = analogRead(pinoLM35);
+
+  // Converte a leitura (0-1023) em tensão (0-5V) e depois em °C
+  float tensao = leitura * (5.0 / 1023.0);
+  float tempC  = tensao * 100.0; // LM35: 10mV por grau Celsius
+
+  Serial.print(tempC);
+  Serial.println(" C");
+
+  digitalWrite(ledFrio,     LOW);
+  digitalWrite(ledAmbiente, LOW);
+  digitalWrite(ledQuente,   LOW);
+
+  if (tempC &lt;= 20.0) {
+    digitalWrite(ledFrio, HIGH);
+  } else if (tempC &lt;= 28.0) {
+    digitalWrite(ledAmbiente, HIGH);
+  } else {
+    digitalWrite(ledQuente, HIGH);
+  }
+
+  delay(500);
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="desafio-07-contador-com-esp8266-2-botoes-e-display-7-segmentos"><div class="module-header"><h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>Desafio 07 — Contador com ESP8266, 2 Botões e Display 7 Segmentos</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">O último desafio troca o Arduino pelo <strong>ESP8266</strong> e implementa um contador digital
+                de um dígito (0 a 9). Dois botões são lidos como entradas digitais: um <strong>incrementa</strong>
+                e o outro <strong>decrementa</strong> o valor do contador, que é exibido em um
+                <strong>display de 7 segmentos</strong>. Cada dígito é formado acendendo uma combinação
+                específica dos 7 segmentos (a-g), armazenada em uma tabela de padrões no código.</p>
+<p class="explanation">Como os botões geram pequenas oscilações elétricas ao serem pressionados (efeito conhecido como
+                <em>bouncing</em>), o código usa um pequeno atraso de <strong>debounce</strong> para garantir
+                que cada clique seja contado apenas uma vez.</p>
+<div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><p>Placa: ESP8266 (NodeMCU)</p></div><div class="pin-card"><i class="fa-solid fa-plus" aria-hidden="true"></i><p>Botão +1: Pino D5</p></div><div class="pin-card"><i class="fa-solid fa-minus" aria-hidden="true"></i><p>Botão -1: Pino D6</p></div><div class="pin-card"><i class="fa-solid fa-table-cells" aria-hidden="true"></i><p>Display 7 segmentos: D1-D4, D7, D8, RX</p></div></div>
+<div class="media-container"><video controls preload="metadata"><source src="videos/desafios-esp8266/esp8266-contador.mp4" type="video/mp4">Seu navegador não suporta vídeo HTML5.</video></div>
+<p class="media-caption"><i class="fa-solid fa-circle-info"></i> Ajuste os pinos <code>segmentos[]</code> abaixo conforme
+                a fiação real do seu display (cátodo comum ou ânodo comum muda a lógica de HIGH/LOW).</p>
+<div class="firmware-section"><div class="firmware-header"><h3>desafio-07.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// Pinos do display de 7 segmentos: a, b, c, d, e, f, g
+const int segmentos[7] = { D1, D2, D3, D4, D7, D8, D0 };
+
+const int botaoMais  = D5;
+const int botaoMenos = D6;
+
+int contador = 0;
+
+// Padrões de cada dígito (0-9) para cátodo comum: 1 = segmento aceso
+const bool digitos[10][7] = {
+  {1,1,1,1,1,1,0}, // 0
+  {0,1,1,0,0,0,0}, // 1
+  {1,1,0,1,1,0,1}, // 2
+  {1,1,1,1,0,0,1}, // 3
+  {0,1,1,0,0,1,1}, // 4
+  {1,0,1,1,0,1,1}, // 5
+  {1,0,1,1,1,1,1}, // 6
+  {1,1,1,0,0,0,0}, // 7
+  {1,1,1,1,1,1,1}, // 8
+  {1,1,1,1,0,1,1}  // 9
+};
+
+void mostrarDigito(int n) {
+  for (int i = 0; i &lt; 7; i++) {
+    digitalWrite(segmentos[i], digitos[n][i]);
+  }
+}
+
+void setup() {
+  for (int i = 0; i &lt; 7; i++) pinMode(segmentos[i], OUTPUT);
+  pinMode(botaoMais,  INPUT_PULLUP);
+  pinMode(botaoMenos, INPUT_PULLUP);
+
+  mostrarDigito(contador);
+}
+
+void loop() {
+  if (digitalRead(botaoMais) == LOW) {
+    contador++;
+    if (contador &gt; 9) contador = 0;
+    mostrarDigito(contador);
+    delay(200); // debounce simples
+  }
+
+  if (digitalRead(botaoMenos) == LOW) {
+    contador--;
+    if (contador &lt; 0) contador = 9;
+    mostrarDigito(contador);
+    delay(200); // debounce simples
+  }
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="o-que-foi-aprendido-nesta-expansao"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>O que foi aprendido nesta expansão</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body"><p class="explanation">Novas competências desenvolvidas nos quatro projetos físicos desta etapa.</p>
+<div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-music" aria-hidden="true"></i><p><strong>Geração de áudio</strong> — uso de <code>tone()</code> e <code>noTone()</code>
+                        para converter frequências em som e reproduzir melodias com buzzers passivos.</p></div><div class="pin-card"><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i><p><strong>Sensoriamento de distância</strong> — cálculo de distância com sensor
+                        ultrassônico e mapeamento de faixas para respostas visuais em LEDs.</p></div><div class="pin-card"><i class="fa-solid fa-temperature-half" aria-hidden="true"></i><p><strong>Sensores analógicos</strong> — leitura de tensão com <code>analogRead()</code>
+                        e conversão para uma grandeza física real (°C) com o LM35.</p></div><div class="pin-card"><i class="fa-solid fa-table-cells" aria-hidden="true"></i><p><strong>Display de 7 segmentos</strong> — controle de múltiplas saídas digitais
+                        simultâneas para formar dígitos a partir de tabelas de padrões.</p></div><div class="pin-card"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i><p><strong>Debounce de botões</strong> — tratamento de ruído elétrico em entradas digitais
+                        para garantir leitura confiável de cliques.</p></div><div class="pin-card"><i class="fa-solid fa-wifi" aria-hidden="true"></i><p><strong>Introdução ao ESP8266</strong> — diferenças de tensão, pinagem <code>D0-D8</code>
+                        e o potencial de conectar o projeto à internet em desafios futuros.</p></div></div>
+<p class="quote">"Trocar o Arduino pelo ESP8266 é dar o primeiro passo da automação isolada para a
+                    automação conectada — a mesma lógica de sensores e atuadores, agora com Wi-Fi embutido."</p></div></section>
+            </main>
+
+            <footer class="site-footer"><div class="site-footer-inner"><div class="brand-line"><strong>Site de Arduinos</strong>Robôs industriais, sensores e IoT</div><div class="contact"><a href="https://github.com/Twy1m" target="_blank" rel="noopener" aria-label="GitHub de Matheus Steingraber"><i class="fa-brands fa-square-github" aria-hidden="true"></i></a><div><p>Matheus Steingraber</p><p><span class="email">matheusg.stein@gmail.com</span></p></div></div></div></footer>
+        </div>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+    <button class="to-top" id="toTop" type="button" aria-label="Voltar ao topo" hidden>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+</body>
+
+</html>

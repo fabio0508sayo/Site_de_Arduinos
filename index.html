@@ -3,224 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafios Arduino | Circuito Interativo</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Site de Arduinos</title>
+    <meta name="description" content="Portal técnico sobre robôs industriais, sensores IoT, Arduino e ESP8266 na Indústria 4.0.">
+    <meta name="theme-color" content="#0B301A">
+    <link rel="icon" type="image/svg+xml" href="IMG/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
+
 <body>
-    <div class="pcb-board">
-        <!-- SVG for background traces -->
-        <svg class="bg-traces" width="100%" height="100%">
-            <!-- Traces will be animated here -->
-        </svg>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="power-rail" id="powerRail" aria-hidden="true"></div>
 
-        <header class="main-header">
-            <div class="pcb-pad-group">
-                <span class="pad"></span><span class="pad"></span><span class="pad"></span>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <a class="brand" href="index.html">
+                <img class="brand-logo" src="IMG/SENAI_Sao_Paulo_logo.png" alt="SENAI São Paulo">
+                <span class="brand-name">Site de Arduinos</span>
+                <span class="brand-tag">Robôs industriais, sensores e IoT</span>
+            </a>
+            <nav class="side-nav" aria-label="Navegação principal"><a class="nav-link" href="index.html" aria-current="page">Início</a><details class="nav-group"><summary>Robôs industriais</summary><div class="nav-sub"><a class="nav-link nav-all" href="robos.html">Ver todos os robôs</a><a class="nav-link" href="robos/articulado.html">Robô Articulado</a><a class="nav-link" href="robos/cartesiano.html">Robô Cartesiano</a><a class="nav-link" href="robos/scara.html">Robô SCARA</a><a class="nav-link" href="robos/cilindrico.html">Robô Cilíndrico</a><a class="nav-link" href="robos/delta.html">Robô Delta</a><a class="nav-link" href="robos/polar.html">Robô Polar</a><a class="nav-link" href="robos/colaborativo.html">Robô Colaborativo</a></div></details><details class="nav-group"><summary>Sensores IoT</summary><div class="nav-sub"><a class="nav-link nav-all" href="sensores.html">Ver catálogo completo</a><a class="nav-link" href="sensores/acs712.html">ACS712</a><a class="nav-link" href="sensores/bh1750.html">BH1750</a><a class="nav-link" href="sensores/celula-carga-hx711.html">Célula de Carga + HX711</a><a class="nav-link" href="sensores/dht11.html">DHT11</a><a class="nav-link" href="sensores/dht22.html">DHT22 (AM2302)</a><a class="nav-link" href="sensores/ds18b20.html">DS18B20</a><a class="nav-link" href="sensores/ky-040.html">Encoder Incremental KY-040</a><a class="nav-link" href="sensores/hc-sr04.html">HC-SR04</a><a class="nav-link" href="sensores/ky-037.html">KY-037</a><a class="nav-link" href="sensores/ldr.html">LDR</a><a class="nav-link" href="sensores/lm35.html">LM35</a><a class="nav-link" href="sensores/mfrc522.html">MFRC522 (RFID)</a><a class="nav-link" href="sensores/mq-135.html">MQ-135</a><a class="nav-link" href="sensores/mq-2.html">MQ-2</a><a class="nav-link" href="sensores/pir-hc-sr501.html">PIR HC-SR501</a><a class="nav-link" href="sensores/sw-420.html">SW-420</a><a class="nav-link" href="sensores/lj18a3.html">Sensor Capacitivo LJ18A3</a><a class="nav-link" href="sensores/soil-moisture.html">Sensor Capacitivo de Umidade do Solo</a><a class="nav-link" href="sensores/fc-37.html">Sensor FC-37 (Chuva)</a><a class="nav-link" href="sensores/hall-a3144.html">Sensor Hall A3144</a><a class="nav-link" href="sensores/lj12a3.html">Sensor Indutivo LJ12A3</a><a class="nav-link" href="sensores/chama-ir.html">Sensor de Chama IR</a><a class="nav-link" href="sensores/boia-nivel.html">Sensor de Nível (Boia)</a><a class="nav-link" href="sensores/yf-s201.html">YF-S201</a><a class="nav-link" href="sensores/zmpt101b.html">ZMPT101B</a></div></details><a class="nav-link" href="arduino.html">Arduino</a><a class="nav-link" href="desafios-arduino.html">Desafios Arduino</a><a class="nav-link" href="desafios-esp8266.html">Desafios ESP8266</a><a class="nav-link" href="referencias.html">Referências</a></nav>
+        </aside>
+
+        <div class="content">
+            <div class="topbar">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <a class="topbar-name" href="index.html">Site de Arduinos</a>
             </div>
-            <h1>ARDUINO LAB EXPERIMENTS</h1>
-            <p class="subtitle">v1.0.0 // SISTEMA INICIADO</p>
-        </header>
 
-        <!-- Module 1 -->
-        <section class="module" id="mod-1">
-            <div class="module-content">
-                <div class="module-header">
-                    <h2>MOD 01 // ILUMINAÇÃO INTELIGENTE</h2>
-                    <div class="led led-blue"></div>
-                </div>
-                
-                <div class="components-list">
-                    <span class="chip">PIR</span>
-                    <span class="chip">LDR</span>
-                    <span class="chip">LED</span>
-                </div>
+            <main class="pcb-board" id="conteudo">
+<header class="main-header"><div class="pcb-pad-group" aria-hidden="true"><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div></div><h1>Robôs Industriais na Indústria 4.0</h1><p class="lead">Este portal técnico apresenta os principais modelos de robôs industriais utilizados em
+                    processos produtivos automatizados, destacando suas características, aplicações e a
+                    relação de cada um com os conceitos e tecnologias da Internet das Coisas (IoT).</p><div class="components-list"><a class="chip" href="robos.html">Robôs industriais</a><a class="chip" href="sensores.html">Sensores IoT</a><a class="chip" href="arduino.html">Arduino</a><a class="chip" href="desafios-arduino.html">Desafios Arduino</a><a class="chip" href="desafios-esp8266.html">Desafios ESP8266</a></div></header>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="catalogo"><div class="module-header"><h2><i class="fa-solid fa-book-open" aria-hidden="true"></i>Um catálogo para estudar e consultar</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body"><p class="explanation">Navegue pelo menu "Robôs Industriais" para conhecer em detalhes cada tipo de robô,
+                    seu princípio de funcionamento, suas aplicações industriais e exemplos reais de
+                    modelos comerciais oferecidos por diferentes fabricantes do mercado.</p><div class="media-container"></div></div></section>
+<div class="bus-heading"><h2>Conceitos fundamentais</h2><p>Antes de conhecer cada robô, entenda as bases que sustentam a automação industrial moderna.</p></div><div class="module-grid"><article class="module"><div class="module-header"><h2><i class="fa-solid fa-wifi" aria-hidden="true"></i>Internet das Coisas (IoT)</h2><span class="led led-blue" aria-hidden="true"></span></div><p class="explanation">A Internet das Coisas é o conceito de conectar objetos físicos - sensores,
+                        máquinas, atuadores e dispositivos em geral - à internet ou a redes locais,
+                        permitindo que eles coletem, troquem e processem dados de forma automática.
+                        Na indústria, essa conectividade é conhecida como IIoT (Industrial Internet
+                        of Things) e é um dos pilares da Indústria 4.0.</p></article><article class="module"><div class="module-header"><h2><i class="fa-solid fa-robot" aria-hidden="true"></i>Robótica Industrial</h2><span class="led led-yellow" aria-hidden="true"></span></div><p class="explanation">A Robótica Industrial estuda o projeto, a construção e a operação de robôs
+                        aplicados a processos de manufatura. Esses robôs são manipuladores programáveis,
+                        capazes de repetir tarefas com alta precisão, velocidade e resistência, atuando
+                        em atividades como solda, montagem, pintura, paletização e manuseio de materiais.</p></article><article class="module"><div class="module-header"><h2><i class="fa-solid fa-industry" aria-hidden="true"></i>Importância da automação industrial</h2><span class="led led-red" aria-hidden="true"></span></div><p class="explanation">A automação industrial reduz custos operacionais, aumenta a produtividade e a
+                        qualidade dos produtos, diminui o desperdício e melhora a segurança dos
+                        trabalhadores ao afastá-los de tarefas repetitivas, perigosas ou insalubres.
+                        Ela também garante maior previsibilidade e rastreabilidade aos processos produtivos.</p></article><article class="module"><div class="module-header"><h2><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>Robótica + IoT</h2><span class="led led-blue" aria-hidden="true"></span></div><p class="explanation">Quando um robô industrial é equipado com sensores conectados e comunicação em
+                        rede, ele deixa de ser apenas um executor de tarefas e passa a gerar dados em
+                        tempo real sobre seu funcionamento. Essa integração possibilita monitoramento
+                        remoto, manutenção preditiva, controle de qualidade automatizado e a criação de
+                        gêmeos digitais (digital twins) dentro do conceito de fábrica inteligente.</p></article><article class="module"><div class="module-header"><h2><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>O conceito de Sensoriamento</h2><span class="led led-yellow" aria-hidden="true"></span></div><p class="explanation">Sensoriamento é o processo de capturar grandezas físicas do ambiente ou de um
+                        processo produtivo - como temperatura, distância, presença, corrente elétrica ou
+                        vibração - e convertê-las em sinais elétricos que um sistema eletrônico consegue
+                        interpretar. É a "porta de entrada" de qualquer sistema de automação ou IoT: sem
+                        sensores, não há dados para monitorar nem decisões automáticas a tomar.</p></article><article class="module"><div class="module-header"><h2><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Sensores na Automação Industrial</h2><span class="led led-red" aria-hidden="true"></span></div><p class="explanation">Os sensores são essenciais na automação industrial porque fornecem, em tempo
+                        real, as informações necessárias para que máquinas, CLPs e sistemas supervisórios
+                        tomem decisões sem intervenção humana. Eles permitem detectar falhas, garantir a
+                        qualidade do produto, otimizar o consumo de energia e aumentar a segurança de
+                        operadores e equipamentos.</p></article><article class="module"><div class="module-header"><h2><i class="fa-solid fa-network-wired" aria-hidden="true"></i>Sensores, comunicação de dados e controle</h2><span class="led led-blue" aria-hidden="true"></span></div><p class="explanation">Em um sistema de IoT industrial, o sensor mede uma grandeza física, um
+                        microcontrolador (Arduino, ESP32) ou CLP converte essa leitura em um sinal digital
+                        e a transmite por um protocolo de comunicação (analógico, digital, I2C, SPI, UART
+                        ou 4-20 mA). Esse dado então alimenta a lógica de controle do processo, que pode
+                        acionar atuadores automaticamente ou enviar informações a um painel de
+                        monitoramento remoto.</p></article><article class="module"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>Arduino - Conceito, funcionamento e programação</h2><span class="led led-yellow" aria-hidden="true"></span></div><p class="explanation">O Arduino é uma plataforma de prototipagem eletrônica de código aberto usada para
+                        ler sensores e controlar atuadores por meio de um microcontrolador programável.
+                        Seus programas (sketches) seguem a estrutura setup()/loop() e são escritos em
+                        C/C++ pela IDE Arduino.
+                        <a class="saiba-mais" href="arduino.html">Conhecer o Arduino em detalhes <i class="fa-solid fa-arrow-right"></i></a></p></article></div>
+<div class="bus-heading"><h2>Do sensor ao atuador</h2><p>Clique no botão e acompanhe o caminho que um dado percorre em um sistema de IoT industrial.</p></div><section class="final-animation-container"><button id="trigger-animation" type="button">Simular fluxo de dados</button><div class="circuit-path"><div class="node-wrap"><div class="node"><i class="fa-solid fa-temperature-half" aria-hidden="true"></i></div><span class="node-label">Sensor</span></div><div class="path-line"><div class="current"></div></div><div class="node-wrap"><div class="node"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div><span class="node-label">Arduino</span></div><div class="path-line"><div class="current"></div></div><div class="node-wrap"><div class="node"><i class="fa-solid fa-wifi" aria-hidden="true"></i></div><span class="node-label">Rede</span></div><div class="path-line"><div class="current"></div></div><div class="node-wrap"><div class="node"><i class="fa-solid fa-sliders" aria-hidden="true"></i></div><span class="node-label">Controle</span></div><div class="path-line"><div class="current"></div></div><div class="node-wrap"><div class="node"><i class="fa-solid fa-gear" aria-hidden="true"></i></div><span class="node-label">Atuador</span></div></div><div class="sim-output" id="simOutput" aria-live="polite">Pressione o botão para iniciar a simulação.</div></section>
+<div class="bus-heading"><h2>Catálogo de robôs industriais</h2><p>Abra a página completa de cada modelo, com especificações técnicas, aplicações, integração com IoT e exemplos de fabricantes.</p></div><div class="tile-grid"><a class="part-tile" href="robos/articulado.html"><div class="tile-media"><img src="IMG/articulado.png" alt="Robô Articulado" loading="lazy"></div><div class="tile-body"><h3>Robô Articulado</h3><p>Imita os movimentos de um braço humano, com várias juntas rotativas. É o tipo mais versátil e utilizado na indústria, aplicado em soldagem, montagem e pintura.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a><a class="part-tile" href="robos/cartesiano.html"><div class="tile-media"><img src="IMG/Robo-cartesiano-removebg-preview.png" alt="Robô Cartesiano" loading="lazy"></div><div class="tile-body"><h3>Robô Cartesiano</h3><p>Movimenta-se em linhas retas nos eixos X, Y e Z. Ideal para aplicações que exigem precisão, como manuseio de peças, corte e impressão 3D.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a><a class="part-tile" href="robos/scara.html"><div class="tile-media"><img src="IMG/Scara.png" alt="Robô SCARA" loading="lazy"></div><div class="tile-body"><h3>Robô SCARA</h3><p>Possui braço com juntas horizontais e eixo vertical rígido. Ideal para operações rápidas e precisas no plano horizontal, como montagem e pick and place.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a><a class="part-tile" href="robos/cilindrico.html"><div class="tile-media"><img src="IMG/Cylindrical-Robot1-removebg-preview.png" alt="Robô Cilíndrico" loading="lazy"></div><div class="tile-body"><h3>Robô Cilíndrico</h3><p>Combina um movimento rotativo na base com movimentos lineares. É usado em tarefas de montagem, soldagem e manuseio de materiais em espaços compactos.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a><a class="part-tile" href="robos/delta.html"><div class="tile-media"><img src="IMG/Delta.png" alt="Robô Delta" loading="lazy"></div><div class="tile-body"><h3>Robô Delta</h3><p>Estrutura paralela suspensa, projetada para manipular pequenos objetos com rapidez e exatidão. Muito usado em linhas de embalagem e alimentos.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a><a class="part-tile" href="robos/polar.html"><div class="tile-media"><img src="IMG/Esferico.png" alt="Robô Polar" loading="lazy"></div><div class="tile-body"><h3>Robô Polar</h3><p>Também chamado de esférico, possui um braço que gira e se estende em movimento esférico. Foi um dos primeiros modelos de robôs industriais desenvolvidos.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a><a class="part-tile" href="robos/colaborativo.html"><div class="tile-media"><img src="IMG/ur3e.webp" alt="Robô Colaborativo (Cobot)" loading="lazy"></div><div class="tile-body"><h3>Robô Colaborativo (Cobot)</h3><p>Projetado para trabalhar lado a lado com pessoas, de forma segura, sem a necessidade de cercas de proteção. Representa uma das principais tendências da Indústria 4.0.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a></div>
+<div class="bus-heading"><h2>Catálogo de sensores IoT e industriais</h2><p>25 sensores documentados com conceito, funcionamento, especificações técnicas, tipo de sinal, aplicações, exemplo de uso e fabricantes. Confira alguns destaques abaixo ou acesse o catálogo completo.</p></div><div class="tile-grid"><a class="part-tile" href="sensores/dht11.html"><div class="tile-media"><img src="IMG/sensores/dht11.svg" alt="DHT11 - Temperatura e Umidade" loading="lazy"></div><div class="tile-body"><h3>DHT11 - Temperatura e Umidade</h3><p>Sensor digital de baixo custo muito usado em estações meteorológicas simples, estufas e projetos educacionais de IoT.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a><a class="part-tile" href="sensores/hc-sr04.html"><div class="tile-media"><img src="IMG/sensores/hc-sr04.svg" alt="HC-SR04 - Distância" loading="lazy"></div><div class="tile-body"><h3>HC-SR04 - Distância</h3><p>Sensor ultrassônico que mede distâncias entre 2cm e 400cm, muito usado em robôs móveis e medição de nível em tanques.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a><a class="part-tile" href="sensores/acs712.html"><div class="tile-media"><img src="IMG/sensores/acs712.svg" alt="ACS712 - Corrente" loading="lazy"></div><div class="tile-body"><h3>ACS712 - Corrente</h3><p>Sensor de efeito Hall que mede corrente elétrica AC/DC de forma isolada, essencial em monitoramento de energia e proteção de motores.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a><a class="part-tile" href="sensores/mfrc522.html"><div class="tile-media"><img src="IMG/sensores/mfrc522.svg" alt="MFRC522 - RFID" loading="lazy"></div><div class="tile-body"><h3>MFRC522 - RFID</h3><p>Módulo leitor RFID de 13,56MHz usado em controle de acesso, identificação e rastreamento de ativos.</p><span class="tile-more">Saiba mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div></a></div><div class="btn-row"><a class="btn" href="sensores.html"><i class="fa-solid fa-list" aria-hidden="true"></i>Ver catálogo completo (25 sensores)</a><a class="btn btn-outline" href="arduino.html"><i class="fa-solid fa-code" aria-hidden="true"></i>Exemplos de programação Arduino</a><a class="btn btn-outline" href="desafios-arduino.html"><i class="fa-solid fa-flask" aria-hidden="true"></i>3 Desafios práticos de Arduino</a><a class="btn btn-outline" href="desafios-esp8266.html"><i class="fa-solid fa-wifi" aria-hidden="true"></i>Novo: 4 Desafios com ESP8266</a></div>
+            </main>
 
-                <p class="explanation">
-                    Sistema automatizado que aciona a iluminação apenas quando detecta movimento (PIR) em ambientes com baixa luminosidade (LDR). Economia e inteligência.
-                </p>
-
-                <div class="media-container">
-                    <video src="videos/desafio1.mp4" controls loop muted></video>
-                </div>
-
-                <div class="firmware-section">
-                    <div class="firmware-header">
-                        <h3>FIRMWARE</h3>
-                        <button class="copy-btn" data-target="code1">COPIAR</button>
-                    </div>
-                    <pre><code id="code1">
-const int PIR_PIN = 2;
-const int LDR_PIN = A0;
-const int LED_PIN = 13;
-
-void setup() {
-  pinMode(PIR_PIN, INPUT);
-  pinMode(LED_PIN, OUTPUT);
-  Serial.begin(9600);
-}
-
-void loop() {
-  int ldrValue = analogRead(LDR_PIN);
-  int motion = digitalRead(PIR_PIN);
-  
-  if (ldrValue < 500 && motion == HIGH) {
-    digitalWrite(LED_PIN, HIGH);
-  } else {
-    digitalWrite(LED_PIN, LOW);
-  }
-  delay(100);
-}
-                    </code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- Connection Trace 1 -->
-        <div class="trace-connector">
-            <div class="trace-line">
-                <div class="electron"></div>
-            </div>
+            <footer class="site-footer"><div class="site-footer-inner"><div class="brand-line"><strong>Site de Arduinos</strong>Robôs industriais, sensores e IoT</div><div class="contact"><a href="https://github.com/Twy1m" target="_blank" rel="noopener" aria-label="GitHub de Matheus Steingraber"><i class="fa-brands fa-square-github" aria-hidden="true"></i></a><div><p>Matheus Steingraber</p><p><span class="email">matheusg.stein@gmail.com</span></p></div></div></div></footer>
         </div>
-
-        <!-- Module 2 -->
-        <section class="module" id="mod-2">
-            <div class="module-content">
-                <div class="module-header">
-                    <h2>MOD 02 // SENSOR DE DISTÂNCIA</h2>
-                    <div class="led led-yellow"></div>
-                </div>
-                
-                <div class="components-list">
-                    <span class="chip">ULTRASSÔNICO</span>
-                    <span class="chip">POTENCIÔMETRO</span>
-                    <span class="chip">LED</span>
-                </div>
-
-                <p class="explanation">
-                    Mede a distância de objetos próximos. O potenciômetro ajusta a sensibilidade de disparo do LED, indicando proximidade de perigo.
-                </p>
-
-                <div class="media-container">
-                    <video src="videos/desafio2.mp4" controls loop muted></video>
-                </div>
-
-                <div class="firmware-section">
-                    <div class="firmware-header">
-                        <h3>FIRMWARE</h3>
-                        <button class="copy-btn" data-target="code2">COPIAR</button>
-                    </div>
-                    <pre><code id="code2">
-#include &lt;NewPing.h&gt;
-
-#define TRIGGER_PIN  3
-#define ECHO_PIN     4
-#define MAX_DISTANCE 200
-
-NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
-const int POT_PIN = A1;
-const int LED_PIN = 12;
-
-void setup() {
-  pinMode(LED_PIN, OUTPUT);
-}
-
-void loop() {
-  int threshold = map(analogRead(POT_PIN), 0, 1023, 5, 100);
-  int distance = sonar.ping_cm();
-  
-  if (distance > 0 && distance < threshold) {
-    digitalWrite(LED_PIN, HIGH);
-  } else {
-    digitalWrite(LED_PIN, LOW);
-  }
-  delay(50);
-}
-                    </code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- Connection Trace 2 -->
-        <div class="trace-connector">
-            <div class="trace-line">
-                <div class="electron"></div>
-            </div>
-        </div>
-
-        <!-- Module 3 -->
-        <section class="module" id="mod-3">
-            <div class="module-content">
-                <div class="module-header">
-                    <h2>MOD 03 // CLIMA CONTROL</h2>
-                    <div class="led led-red"></div>
-                </div>
-                
-                <div class="components-list">
-                    <span class="chip">TEMPERATURA</span>
-                    <span class="chip">UMIDADE</span>
-                    <span class="chip">LEDS</span>
-                </div>
-
-                <p class="explanation">
-                    Monitoramento contínuo das condições ambientais. LEDs de diferentes cores alertam se a temperatura ou umidade ultrapassarem os limites ideais.
-                </p>
-
-                <div class="media-container">
-                    <video src="videos/desafio3.mp4" controls loop muted></video>
-                </div>
-
-                <div class="firmware-section">
-                    <div class="firmware-header">
-                        <h3>FIRMWARE</h3>
-                        <button class="copy-btn" data-target="code3">COPIAR</button>
-                    </div>
-                    <pre><code id="code3">
-#include "DHT.h"
-
-#define DHTPIN 5
-#define DHTTYPE DHT11
-
-DHT dht(DHTPIN, DHTTYPE);
-const int LED_TEMP_ALARM = 11;
-const int LED_HUM_ALARM = 10;
-
-void setup() {
-  dht.begin();
-  pinMode(LED_TEMP_ALARM, OUTPUT);
-  pinMode(LED_HUM_ALARM, OUTPUT);
-}
-
-void loop() {
-  float h = dht.readHumidity();
-  float t = dht.readTemperature();
-  
-  if (isnan(h) || isnan(t)) return;
-  
-  digitalWrite(LED_TEMP_ALARM, t > 30.0 ? HIGH : LOW);
-  digitalWrite(LED_HUM_ALARM, h < 30.0 || h > 70.0 ? HIGH : LOW);
-  
-  delay(2000);
-}
-                    </code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final Animation Section -->
-        <section class="final-animation-container">
-            <button id="trigger-animation">TESTAR CIRCUITO COMPLETO</button>
-            <div class="circuit-path">
-                <div class="node" id="node-1">1</div>
-                <div class="path-line"><div class="current"></div></div>
-                <div class="node" id="node-2">2</div>
-                <div class="path-line"><div class="current"></div></div>
-                <div class="node" id="node-3">3</div>
-            </div>
-        </section>
-
     </div>
 
-    <script src="main.js"></script>
+    <div class="scrim" id="scrim"></div>
+    <button class="to-top" id="toTop" type="button" aria-label="Voltar ao topo" hidden>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 </body>
+
 </html>

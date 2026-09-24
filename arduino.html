@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino | Site de Arduinos</title>
+    <meta name="description" content="O Arduino é a plataforma de prototipagem eletrônica mais usada para conectar sensores ao mundo digital. Nesta página você encontra suas características, como fu">
+    <meta name="theme-color" content="#0B301A">
+    <link rel="icon" type="image/svg+xml" href="IMG/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="power-rail" id="powerRail" aria-hidden="true"></div>
+
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <a class="brand" href="index.html">
+                <img class="brand-logo" src="IMG/SENAI_Sao_Paulo_logo.png" alt="SENAI São Paulo">
+                <span class="brand-name">Site de Arduinos</span>
+                <span class="brand-tag">Robôs industriais, sensores e IoT</span>
+            </a>
+            <nav class="side-nav" aria-label="Navegação principal"><a class="nav-link" href="index.html">Início</a><details class="nav-group"><summary>Robôs industriais</summary><div class="nav-sub"><a class="nav-link nav-all" href="robos.html">Ver todos os robôs</a><a class="nav-link" href="robos/articulado.html">Robô Articulado</a><a class="nav-link" href="robos/cartesiano.html">Robô Cartesiano</a><a class="nav-link" href="robos/scara.html">Robô SCARA</a><a class="nav-link" href="robos/cilindrico.html">Robô Cilíndrico</a><a class="nav-link" href="robos/delta.html">Robô Delta</a><a class="nav-link" href="robos/polar.html">Robô Polar</a><a class="nav-link" href="robos/colaborativo.html">Robô Colaborativo</a></div></details><details class="nav-group"><summary>Sensores IoT</summary><div class="nav-sub"><a class="nav-link nav-all" href="sensores.html">Ver catálogo completo</a><a class="nav-link" href="sensores/acs712.html">ACS712</a><a class="nav-link" href="sensores/bh1750.html">BH1750</a><a class="nav-link" href="sensores/celula-carga-hx711.html">Célula de Carga + HX711</a><a class="nav-link" href="sensores/dht11.html">DHT11</a><a class="nav-link" href="sensores/dht22.html">DHT22 (AM2302)</a><a class="nav-link" href="sensores/ds18b20.html">DS18B20</a><a class="nav-link" href="sensores/ky-040.html">Encoder Incremental KY-040</a><a class="nav-link" href="sensores/hc-sr04.html">HC-SR04</a><a class="nav-link" href="sensores/ky-037.html">KY-037</a><a class="nav-link" href="sensores/ldr.html">LDR</a><a class="nav-link" href="sensores/lm35.html">LM35</a><a class="nav-link" href="sensores/mfrc522.html">MFRC522 (RFID)</a><a class="nav-link" href="sensores/mq-135.html">MQ-135</a><a class="nav-link" href="sensores/mq-2.html">MQ-2</a><a class="nav-link" href="sensores/pir-hc-sr501.html">PIR HC-SR501</a><a class="nav-link" href="sensores/sw-420.html">SW-420</a><a class="nav-link" href="sensores/lj18a3.html">Sensor Capacitivo LJ18A3</a><a class="nav-link" href="sensores/soil-moisture.html">Sensor Capacitivo de Umidade do Solo</a><a class="nav-link" href="sensores/fc-37.html">Sensor FC-37 (Chuva)</a><a class="nav-link" href="sensores/hall-a3144.html">Sensor Hall A3144</a><a class="nav-link" href="sensores/lj12a3.html">Sensor Indutivo LJ12A3</a><a class="nav-link" href="sensores/chama-ir.html">Sensor de Chama IR</a><a class="nav-link" href="sensores/boia-nivel.html">Sensor de Nível (Boia)</a><a class="nav-link" href="sensores/yf-s201.html">YF-S201</a><a class="nav-link" href="sensores/zmpt101b.html">ZMPT101B</a></div></details><a class="nav-link" href="arduino.html" aria-current="page">Arduino</a><a class="nav-link" href="desafios-arduino.html">Desafios Arduino</a><a class="nav-link" href="desafios-esp8266.html">Desafios ESP8266</a><a class="nav-link" href="referencias.html">Referências</a></nav>
+        </aside>
+
+        <div class="content">
+            <div class="topbar">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <a class="topbar-name" href="index.html">Site de Arduinos</a>
+            </div>
+
+            <main class="pcb-board" id="conteudo">
+<nav class="breadcrumb" aria-label="Você está em"><a href="index.html">Início</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Arduino</span></nav>
+<header class="main-header"><div class="pcb-pad-group" aria-hidden="true"><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div></div><h1>Arduino</h1><p class="lead">O Arduino é a plataforma de prototipagem eletrônica mais usada para conectar sensores ao mundo digital. Nesta página você encontra suas características, como funciona e exemplos completos de programação para 12 dos sensores do catálogo.</p></header>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="o-que-e-o-arduino"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>O que é o Arduino</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">Arduino é uma plataforma de prototipagem eletrônica de código aberto (hardware e software), composta por uma placa com um microcontrolador e um ambiente de desenvolvimento (IDE) simplificado. Ele foi criado para facilitar a criação de projetos interativos, permitindo ler sinais de sensores e controlar atuadores (motores, relés, LEDs, displays) com poucas linhas de código em C/C++.</p></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="como-funciona"><div class="module-header"><h2><i class="fa-solid fa-gear" aria-hidden="true"></i>Como funciona</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body">
+<p class="explanation">Todo programa Arduino (chamado de <em>sketch</em>) segue uma estrutura de duas funções principais: <code>setup()</code>, executada uma única vez ao ligar a placa (usada para configurar pinos e inicializar sensores/bibliotecas), e <code>loop()</code>, executada repetidamente enquanto a placa estiver ligada (usada para ler sensores, tomar decisões e acionar saídas). O microcontrolador possui conversores analógico-digitais (ADC) para ler sensores analógicos, pinos digitais para sensores on/off, e interfaces de comunicação (I2C, SPI, UART) para sensores digitais mais avançados.</p></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="caracteristicas-tecnicas-arduino-uno"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>Características técnicas (Arduino Uno)</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body"><div class="pin-grid"><div class="pin-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><p>Microcontrolador ATmega328P</p></div><div class="pin-card"><i class="fa-solid fa-bolt" aria-hidden="true"></i><p>Tensão de operação: 5V</p></div><div class="pin-card"><i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i><p>14 pinos digitais (6 com PWM)</p></div><div class="pin-card"><i class="fa-solid fa-wave-square" aria-hidden="true"></i><p>6 entradas analógicas (ADC de 10 bits)</p></div><div class="pin-card"><i class="fa-solid fa-memory" aria-hidden="true"></i><p>32KB de memória Flash / 2KB SRAM</p></div><div class="pin-card"><i class="fa-solid fa-code" aria-hidden="true"></i><p>Programado em C/C++ pela IDE Arduino</p></div><div class="pin-card"><i class="fa-solid fa-clock" aria-hidden="true"></i><p>Clock de 16MHz</p></div><div class="pin-card"><i class="fa-solid fa-usb" aria-hidden="true"></i><p>Comunicação USB para upload e Serial Monitor</p></div></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="tipos-de-sinal-suportados"><div class="module-header"><h2><i class="fa-solid fa-wave-square" aria-hidden="true"></i>Tipos de sinal suportados</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body"><p class="explanation">O Arduino se comunica com os sensores deste catálogo por meio de diferentes tipos de sinal, cada um adequado a um tipo de dado:</p>
+<p class="explanation"><strong>Analógico:</strong> lido pela função <code>analogRead()</code> nos pinos A0–A5, converte uma tensão (0–5V) em um valor de 0 a 1023 (ex.: LM35, LDR, MQ-2, ACS712).</p>
+<p class="explanation"><strong>Digital:</strong> lido/escrito pelas funções <code>digitalRead()</code> e <code>digitalWrite()</code>, representa apenas dois estados, alto ou baixo (ex.: PIR HC-SR501, SW-420, boia de nível).</p>
+<p class="explanation"><strong>I2C:</strong> barramento de 2 fios (SDA/SCL) que permite ligar vários sensores digitais ao mesmo tempo com endereços diferentes (ex.: BH1750).</p>
+<p class="explanation"><strong>SPI:</strong> barramento síncrono de 4 fios, mais rápido que o I2C, usado por módulos que exigem maior taxa de transferência (ex.: MFRC522).</p>
+<div class="components-list"><span class="chip">Analógico</span><span class="chip">Digital</span><span class="chip">I2C</span><span class="chip">SPI</span><span class="chip">1-Wire</span><span class="chip">UART</span></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<div class="bus-heading" id="exemplos-de-programacao"><h2>Exemplos de programação</h2><p>12 exemplos completos e comentados, um para cada sensor selecionado do catálogo — clique em um sensor para ver o código.</p><div class="components-list"><a class="chip" href="#cod-dht11">DHT11</a><a class="chip" href="#cod-ds18b20">DS18B20</a><a class="chip" href="#cod-ldr">LDR</a><a class="chip" href="#cod-hc-sr04">HC-SR04</a><a class="chip" href="#cod-pir-hc-sr501">PIR HC-SR501</a><a class="chip" href="#cod-mq-2">MQ-2</a><a class="chip" href="#cod-soil-moisture">Sensor Capacitivo de Umidade do Solo</a><a class="chip" href="#cod-yf-s201">YF-S201</a><a class="chip" href="#cod-acs712">ACS712</a><a class="chip" href="#cod-sw-420">SW-420</a><a class="chip" href="#cod-mfrc522">MFRC522 (RFID)</a><a class="chip" href="#cod-ky-040">Encoder Incremental KY-040</a></div></div>
+<section class="module" id="cod-dht11"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>DHT11 — Estação de temperatura e umidade com alarme de ventilação</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> DHT11: VCC → 5V · GND → GND · DATA → pino digital 2 (com resistor de pull-up de 10kΩ entre DATA e VCC)</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> DHT sensor library (Adafruit) — instale via Gerenciador de Bibliotecas da IDE</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/dht11.html">DHT11</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>dht11.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Leitura de temperatura e umidade com o DHT11
+// Aciona um relé de ventilação quando a temperatura
+// ultrapassa um limite de segurança
+// ===================================================
+#include &lt;DHT.h&gt;
+
+#define DHTPIN 2        // Pino de dados do DHT11
+#define DHTTYPE DHT11   // Define o modelo do sensor
+#define PINO_RELE 8     // Pino que aciona o relé da ventilação
+
+DHT dht(DHTPIN, DHTTYPE);
+const float TEMP_LIMITE = 30.0; // Limite em °C para ligar a ventilação
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PINO_RELE, OUTPUT);
+  digitalWrite(PINO_RELE, LOW); // Ventilação começa desligada
+  dht.begin();                  // Inicializa o sensor
+}
+
+void loop() {
+  // Faz a leitura de umidade e temperatura (pode levar até 250ms)
+  float umidade = dht.readHumidity();
+  float temperatura = dht.readTemperature();
+
+  // Verifica se a leitura falhou (erro de comunicação)
+  if (isnan(umidade) || isnan(temperatura)) {
+    Serial.println("Falha na leitura do sensor DHT11!");
+    return;
+  }
+
+  Serial.print("Umidade: ");
+  Serial.print(umidade);
+  Serial.print(" %  Temperatura: ");
+  Serial.print(temperatura);
+  Serial.println(" C");
+
+  // Liga a ventilação automaticamente se a temperatura for alta
+  if (temperatura &gt; TEMP_LIMITE) {
+    digitalWrite(PINO_RELE, HIGH);
+  } else {
+    digitalWrite(PINO_RELE, LOW);
+  }
+
+  delay(2000); // O DHT11 não deve ser lido mais de 1x por segundo
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-ds18b20"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>DS18B20 — Leitura de múltiplas sondas de temperatura no mesmo barramento</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> DS18B20: VCC → 5V · GND → GND · DATA → pino digital 4 (com resistor de pull-up de 4,7kΩ entre DATA e VCC)</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> OneWire + DallasTemperature (Miles Burton) — instale via Gerenciador de Bibliotecas</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/ds18b20.html">DS18B20</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>ds18b20.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Leitura de temperatura com um ou mais sensores
+// DS18B20 no mesmo barramento 1-Wire
+// ===================================================
+#include &lt;OneWire.h&gt;
+#include &lt;DallasTemperature.h&gt;
+
+#define PINO_BARRAMENTO 4 // Pino digital do barramento 1-Wire
+
+OneWire oneWire(PINO_BARRAMENTO);
+DallasTemperature sensores(&amp;oneWire);
+
+void setup() {
+  Serial.begin(9600);
+  sensores.begin(); // Inicializa a biblioteca e localiza os sensores
+
+  int quantidade = sensores.getDeviceCount();
+  Serial.print("Sensores DS18B20 encontrados: ");
+  Serial.println(quantidade);
+}
+
+void loop() {
+  sensores.requestTemperatures(); // Solicita a conversão a todos os sensores
+
+  // Lê a temperatura de cada sensor pelo seu índice no barramento
+  for (int i = 0; i &lt; sensores.getDeviceCount(); i++) {
+    float tempC = sensores.getTempCByIndex(i);
+    Serial.print("Sensor ");
+    Serial.print(i);
+    Serial.print(": ");
+    Serial.print(tempC);
+    Serial.println(" C");
+  }
+
+  delay(1000);
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-ldr"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>LDR — Iluminação automática por luminosidade ambiente</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> LDR em divisor de tensão: 5V → LDR → A0 → resistor 10kΩ → GND</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> Nenhuma biblioteca externa necessária</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/ldr.html">LDR</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>ldr.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Acende a iluminação automaticamente quando
+// o ambiente escurece (leitura via LDR)
+// ===================================================
+#define PINO_LDR A0
+#define PINO_RELE_LUZ 7
+
+const int LIMITE_ESCURO = 300; // Ajustar conforme o ambiente (0-1023)
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PINO_RELE_LUZ, OUTPUT);
+}
+
+void loop() {
+  int leituraLuz = analogRead(PINO_LDR); // 0 (escuro) a 1023 (muito claro)
+
+  Serial.print("Luminosidade: ");
+  Serial.println(leituraLuz);
+
+  // Quanto menor a leitura, mais escuro está o ambiente
+  if (leituraLuz &lt; LIMITE_ESCURO) {
+    digitalWrite(PINO_RELE_LUZ, HIGH); // Liga a iluminação
+  } else {
+    digitalWrite(PINO_RELE_LUZ, LOW);  // Desliga a iluminação
+  }
+
+  delay(500);
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-hc-sr04"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>HC-SR04 — Robô com desvio automático de obstáculos</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> HC-SR04: VCC → 5V · GND → GND · TRIG → pino digital 9 · ECHO → pino digital 10</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> Nenhuma biblioteca externa necessária</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/hc-sr04.html">HC-SR04</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>hc-sr04.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Mede a distância até um obstáculo com o HC-SR04
+// e sinaliza quando o objeto está muito próximo
+// ===================================================
+#define PINO_TRIG 9
+#define PINO_ECHO 10
+#define DISTANCIA_MINIMA 15 // cm
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PINO_TRIG, OUTPUT);
+  pinMode(PINO_ECHO, INPUT);
+}
+
+long medirDistanciaCm() {
+  // Gera um pulso de 10 microssegundos no Trigger
+  digitalWrite(PINO_TRIG, LOW);
+  delayMicroseconds(2);
+  digitalWrite(PINO_TRIG, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(PINO_TRIG, LOW);
+
+  // Mede o tempo em que o Echo fica em nível alto (ida e volta do som)
+  long duracao = pulseIn(PINO_ECHO, HIGH);
+
+  // Converte o tempo em distância: velocidade do som ~ 0,0343 cm/us,
+  // dividido por 2 porque o som percorre a distância duas vezes (ida e volta)
+  long distanciaCm = duracao * 0.0343 / 2;
+  return distanciaCm;
+}
+
+void loop() {
+  long distancia = medirDistanciaCm();
+
+  Serial.print("Distancia: ");
+  Serial.print(distancia);
+  Serial.println(" cm");
+
+  if (distancia &gt; 0 &amp;&amp; distancia &lt; DISTANCIA_MINIMA) {
+    Serial.println("Obstaculo detectado! Desviando...");
+    // Aqui entraria a lógica de desvio do robô
+  }
+
+  delay(200);
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-pir-hc-sr501"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>PIR HC-SR501 — Iluminação por presença com temporizador</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> HC-SR501: VCC → 5V · GND → GND · OUT → pino digital 3</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> Nenhuma biblioteca externa necessária</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/pir-hc-sr501.html">PIR HC-SR501</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>pir-hc-sr501.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Liga a iluminação ao detectar movimento e mantém
+// acesa por um tempo determinado após a detecção
+// ===================================================
+#define PINO_PIR 3
+#define PINO_LAMPADA 6
+
+const unsigned long TEMPO_ACESO = 30000; // 30 segundos
+unsigned long ultimaDeteccao = 0;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PINO_PIR, INPUT);
+  pinMode(PINO_LAMPADA, OUTPUT);
+}
+
+void loop() {
+  int movimento = digitalRead(PINO_PIR);
+
+  if (movimento == HIGH) {
+    ultimaDeteccao = millis(); // Atualiza o instante da última detecção
+    digitalWrite(PINO_LAMPADA, HIGH);
+    Serial.println("Movimento detectado - lampada ligada");
+  }
+
+  // Apaga a lâmpada se o tempo sem detecção ultrapassar o limite
+  if (millis() - ultimaDeteccao &gt; TEMPO_ACESO) {
+    digitalWrite(PINO_LAMPADA, LOW);
+  }
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-mq-2"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>MQ-2 — Alarme de vazamento de gás com corte de segurança</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> MQ-2: VCC → 5V · GND → GND · A0 → pino analógico A1</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> Nenhuma biblioteca externa necessária</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/mq-2.html">MQ-2</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>mq-2.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Monitora a concentração de gás/fumaça (MQ-2) e
+// aciona buzzer + válvula de corte em caso de vazamento
+// ===================================================
+#define PINO_MQ2 A1
+#define PINO_BUZZER 5
+#define PINO_VALVULA 6
+
+const int LIMITE_GAS = 400; // Ajustar conforme calibração do ambiente
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PINO_BUZZER, OUTPUT);
+  pinMode(PINO_VALVULA, OUTPUT);
+  Serial.println("Aquecendo o sensor MQ-2...");
+  delay(20000); // Tempo mínimo de pré-aquecimento do elemento sensor
+}
+
+void loop() {
+  int nivelGas = analogRead(PINO_MQ2);
+
+  Serial.print("Nivel de gas: ");
+  Serial.println(nivelGas);
+
+  if (nivelGas &gt; LIMITE_GAS) {
+    digitalWrite(PINO_BUZZER, HIGH);   // Liga o alarme sonoro
+    digitalWrite(PINO_VALVULA, HIGH);  // Aciona a válvula de corte de gás
+    Serial.println("ALERTA: vazamento de gas detectado!");
+  } else {
+    digitalWrite(PINO_BUZZER, LOW);
+    digitalWrite(PINO_VALVULA, LOW);
+  }
+
+  delay(1000);
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-soil-moisture"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>Sensor Capacitivo de Umidade do Solo — Irrigação automática por umidade do solo</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> Sensor capacitivo: VCC → 5V · GND → GND · AOUT → pino analógico A2</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> Nenhuma biblioteca externa necessária</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/soil-moisture.html">Sensor Capacitivo de Umidade do Solo</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>soil-moisture.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Liga a bomba de irrigação quando o solo está seco
+// (sensor capacitivo de umidade do solo)
+// ===================================================
+#define PINO_SOLO A2
+#define PINO_BOMBA 7
+
+// Valores de calibração (medidos previamente no ar seco e na água)
+const int VALOR_SECO = 620;
+const int VALOR_MOLHADO = 300;
+const int UMIDADE_MINIMA = 30; // % - abaixo disso, liga a irrigação
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PINO_BOMBA, OUTPUT);
+}
+
+int lerUmidadePercentual() {
+  int leitura = analogRead(PINO_SOLO);
+  // Converte a leitura bruta para uma escala de 0% a 100%
+  int percentual = map(leitura, VALOR_SECO, VALOR_MOLHADO, 0, 100);
+  percentual = constrain(percentual, 0, 100);
+  return percentual;
+}
+
+void loop() {
+  int umidade = lerUmidadePercentual();
+
+  Serial.print("Umidade do solo: ");
+  Serial.print(umidade);
+  Serial.println(" %");
+
+  if (umidade &lt; UMIDADE_MINIMA) {
+    digitalWrite(PINO_BOMBA, HIGH); // Liga a bomba de irrigação
+  } else {
+    digitalWrite(PINO_BOMBA, LOW);  // Desliga a bomba
+  }
+
+  delay(2000);
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-yf-s201"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>YF-S201 — Medidor de consumo de água em litros</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> YF-S201: VCC (vermelho) → 5V · GND (preto) → GND · SINAL (amarelo) → pino digital 2 (interrupção)</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> Nenhuma biblioteca externa necessária</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/yf-s201.html">YF-S201</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>yf-s201.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Calcula a vazão (L/min) e o volume total (L) de água
+// usando os pulsos gerados pelo sensor YF-S201
+// ===================================================
+#define PINO_FLUXO 2 // Precisa ser um pino com suporte a interrupção
+
+volatile unsigned long contadorPulsos = 0;
+unsigned long ultimoCalculo = 0;
+float volumeTotalLitros = 0;
+
+// Função executada a cada pulso gerado pelo sensor
+void contarPulso() {
+  contadorPulsos++;
+}
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PINO_FLUXO, INPUT_PULLUP);
+  // Chama contarPulso() a cada borda de subida do sinal
+  attachInterrupt(digitalPinToInterrupt(PINO_FLUXO), contarPulso, RISING);
+}
+
+void loop() {
+  if (millis() - ultimoCalculo &gt;= 1000) { // Calcula a cada 1 segundo
+    noInterrupts();
+    unsigned long pulsos = contadorPulsos;
+    contadorPulsos = 0;
+    interrupts();
+
+    // Fator do YF-S201: aproximadamente 450 pulsos por litro
+    float vazaoLPM = (pulsos / 450.0) * 60.0;
+    volumeTotalLitros += pulsos / 450.0;
+
+    Serial.print("Vazao: ");
+    Serial.print(vazaoLPM);
+    Serial.print(" L/min | Volume total: ");
+    Serial.print(volumeTotalLitros);
+    Serial.println(" L");
+
+    ultimoCalculo = millis();
+  }
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-acs712"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>ACS712 — Monitor de corrente com proteção contra sobrecarga</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> ACS712: VCC → 5V · GND → GND · OUT → pino analógico A3 (carga em série com IP+/IP-)</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> Nenhuma biblioteca externa necessária</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/acs712.html">ACS712</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>acs712.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Mede a corrente elétrica com o ACS712 (versão 20A)
+// e desliga a carga em caso de sobrecorrente
+// ===================================================
+#define PINO_ACS712 A3
+#define PINO_RELE_PROTECAO 8
+
+const float SENSIBILIDADE = 0.100; // 100 mV/A para o modulo de 20A
+const float TENSAO_REF = 5.0;
+const float CORRENTE_LIMITE = 5.0; // Amperes
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PINO_RELE_PROTECAO, OUTPUT);
+  digitalWrite(PINO_RELE_PROTECAO, HIGH); // Carga ligada inicialmente
+}
+
+float lerCorrenteAmperes() {
+  int leitura = analogRead(PINO_ACS712);
+  float tensao = (leitura * TENSAO_REF) / 1023.0;
+  // A saída fica centrada em VCC/2 (2,5V) quando a corrente é zero
+  float corrente = (tensao - (TENSAO_REF / 2.0)) / SENSIBILIDADE;
+  return corrente;
+}
+
+void loop() {
+  float corrente = lerCorrenteAmperes();
+
+  Serial.print("Corrente: ");
+  Serial.print(corrente);
+  Serial.println(" A");
+
+  if (abs(corrente) &gt; CORRENTE_LIMITE) {
+    digitalWrite(PINO_RELE_PROTECAO, LOW); // Desliga a carga por segurança
+    Serial.println("SOBRECORRENTE! Carga desligada.");
+  }
+
+  delay(500);
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-sw-420"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>SW-420 — Alarme antifurto por detecção de vibração</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> SW-420: VCC → 5V · GND → GND · DO → pino digital 3 (interrupção)</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> Nenhuma biblioteca externa necessária</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/sw-420.html">SW-420</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>sw-420.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Conta eventos de vibração e dispara um alarme se o
+// número de eventos em 1 minuto ultrapassar o limite
+// ===================================================
+#define PINO_VIBRACAO 3
+#define PINO_ALARME 4
+
+volatile int eventosVibracao = 0;
+unsigned long inicioJanela = 0;
+const int LIMITE_EVENTOS = 5;
+const unsigned long JANELA_MS = 60000; // 1 minuto
+
+void registrarVibracao() {
+  eventosVibracao++;
+}
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PINO_VIBRACAO, INPUT);
+  pinMode(PINO_ALARME, OUTPUT);
+  attachInterrupt(digitalPinToInterrupt(PINO_VIBRACAO), registrarVibracao, RISING);
+  inicioJanela = millis();
+}
+
+void loop() {
+  if (millis() - inicioJanela &gt;= JANELA_MS) {
+    Serial.print("Eventos de vibracao no periodo: ");
+    Serial.println(eventosVibracao);
+
+    if (eventosVibracao &gt;= LIMITE_EVENTOS) {
+      digitalWrite(PINO_ALARME, HIGH);
+      Serial.println("ALERTA: possivel violacao detectada!");
+    } else {
+      digitalWrite(PINO_ALARME, LOW);
+    }
+
+    eventosVibracao = 0;
+    inicioJanela = millis();
+  }
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-mfrc522"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>MFRC522 (RFID) — Controle de acesso por cartão RFID</h2><span class="led led-red" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> MFRC522: SDA→10 · SCK→13 · MOSI→11 · MISO→12 · RST→9 · VCC→3.3V · GND→GND</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> MFRC522 (miguelbalboa) — instale via Gerenciador de Bibliotecas</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/mfrc522.html">MFRC522 (RFID)</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>mfrc522.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Libera uma fechadura eletrônica apenas para
+// cartões RFID cadastrados como autorizados
+// ===================================================
+#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+
+#define PINO_SDA 10
+#define PINO_RST 9
+#define PINO_FECHADURA 8
+
+MFRC522 leitor(PINO_SDA, PINO_RST);
+
+// UID de um cartão autorizado (ajustar conforme o cartão do usuário)
+byte uidAutorizado[4] = {0xDE, 0xAD, 0xBE, 0xEF};
+
+void setup() {
+  Serial.begin(9600);
+  SPI.begin();
+  leitor.PCD_Init();
+  pinMode(PINO_FECHADURA, OUTPUT);
+  digitalWrite(PINO_FECHADURA, LOW);
+  Serial.println("Aproxime um cartao RFID...");
+}
+
+bool cartaoAutorizado(byte *uidLido, byte tamanho) {
+  if (tamanho != 4) return false;
+  for (byte i = 0; i &lt; 4; i++) {
+    if (uidLido[i] != uidAutorizado[i]) return false;
+  }
+  return true;
+}
+
+void loop() {
+  // Verifica se existe um novo cartão presente
+  if (!leitor.PICC_IsNewCardPresent() || !leitor.PICC_ReadCardSerial()) {
+    return;
+  }
+
+  if (cartaoAutorizado(leitor.uid.uidByte, leitor.uid.size)) {
+    Serial.println("Acesso liberado!");
+    digitalWrite(PINO_FECHADURA, HIGH);
+    delay(3000); // Mantém a fechadura destravada por 3 segundos
+    digitalWrite(PINO_FECHADURA, LOW);
+  } else {
+    Serial.println("Cartao nao autorizado.");
+  }
+
+  leitor.PICC_HaltA(); // Encerra a leitura deste cartão
+}</code></pre></div></div></section>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="cod-ky-040"><div class="module-header"><h2><i class="fa-solid fa-microchip" aria-hidden="true"></i>Encoder Incremental KY-040 — Navegação de menu em display com encoder rotativo</h2><span class="led led-blue" aria-hidden="true"></span></div><div class="module-body"><div class="wiring-box"><p><i class="fa-solid fa-plug"></i> <strong>Ligação:</strong> KY-040: CLK → pino digital 2 · DT → pino digital 3 · SW → pino digital 4 · + → 5V · GND → GND</p><p><i class="fa-solid fa-book"></i> <strong>Biblioteca:</strong> Nenhuma biblioteca externa necessária</p><p><i class="fa-solid fa-link"></i> <strong>Página do sensor:</strong> <a href="sensores/ky-040.html">Encoder Incremental KY-040</a></p></div>
+<div class="firmware-section"><div class="firmware-header"><h3>ky-040.ino</h3><button class="copy-btn" type="button">Copiar código</button></div><pre><code class="language-cpp">// ===================================================
+// Lê a rotação e o botão do encoder KY-040 para
+// navegar entre opções de um menu
+// ===================================================
+#define PINO_CLK 2
+#define PINO_DT 3
+#define PINO_SW 4
+
+int opcaoMenu = 0;
+const int TOTAL_OPCOES = 5;
+int ultimoEstadoCLK;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PINO_CLK, INPUT);
+  pinMode(PINO_DT, INPUT);
+  pinMode(PINO_SW, INPUT_PULLUP);
+
+  ultimoEstadoCLK = digitalRead(PINO_CLK);
+}
+
+void loop() {
+  int estadoCLK = digitalRead(PINO_CLK);
+
+  // Uma mudança no CLK indica que o eixo girou um passo
+  if (estadoCLK != ultimoEstadoCLK &amp;&amp; estadoCLK == LOW) {
+    // Compara CLK e DT para saber o sentido da rotação
+    if (digitalRead(PINO_DT) != estadoCLK) {
+      opcaoMenu++; // Girou no sentido horário
+    } else {
+      opcaoMenu--; // Girou no sentido anti-horário
+    }
+    opcaoMenu = constrain(opcaoMenu, 0, TOTAL_OPCOES - 1);
+
+    Serial.print("Opcao selecionada: ");
+    Serial.println(opcaoMenu);
+  }
+  ultimoEstadoCLK = estadoCLK;
+
+  // Verifica se o botão do encoder foi pressionado (confirma seleção)
+  if (digitalRead(PINO_SW) == LOW) {
+    Serial.print("Opcao confirmada: ");
+    Serial.println(opcaoMenu);
+    delay(300); // Debounce simples do botão
+  }
+}</code></pre></div></div></section>
+            </main>
+
+            <footer class="site-footer"><div class="site-footer-inner"><div class="brand-line"><strong>Site de Arduinos</strong>Robôs industriais, sensores e IoT</div><div class="contact"><a href="https://github.com/Twy1m" target="_blank" rel="noopener" aria-label="GitHub de Matheus Steingraber"><i class="fa-brands fa-square-github" aria-hidden="true"></i></a><div><p>Matheus Steingraber</p><p><span class="email">matheusg.stein@gmail.com</span></p></div></div></div></footer>
+        </div>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+    <button class="to-top" id="toTop" type="button" aria-label="Voltar ao topo" hidden>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+</body>
+
+</html>
