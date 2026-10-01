@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz SAEP | Site de Arduinos</title>
+    <meta name="description" content="Simulado no estilo SAEP com questões sobre robôs industriais, sensores, multímetro, Arduino, ESP8266 e programação.">
+    <meta name="theme-color" content="#0B301A">
+    <link rel="icon" type="image/svg+xml" href="IMG/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Share+Tech+Mono&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/quiz.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="power-rail" id="powerRail" aria-hidden="true"></div>
+
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <a class="brand" href="index.html">
+                <img class="brand-logo" src="IMG/SENAI_Sao_Paulo_logo.png" alt="SENAI São Paulo">
+                <span class="brand-name">Site de Arduinos</span>
+                <span class="brand-tag">Robôs industriais, sensores e IoT</span>
+            </a>
+            <nav class="side-nav" aria-label="Navegação principal"><a class="nav-link" href="index.html">Início</a><details class="nav-group"><summary>Robôs industriais</summary><div class="nav-sub"><a class="nav-link nav-all" href="robos.html">Ver todos os robôs</a><a class="nav-link" href="robos/articulado.html">Robô Articulado</a><a class="nav-link" href="robos/cartesiano.html">Robô Cartesiano</a><a class="nav-link" href="robos/scara.html">Robô SCARA</a><a class="nav-link" href="robos/cilindrico.html">Robô Cilíndrico</a><a class="nav-link" href="robos/delta.html">Robô Delta</a><a class="nav-link" href="robos/polar.html">Robô Polar</a><a class="nav-link" href="robos/colaborativo.html">Robô Colaborativo</a></div></details><details class="nav-group"><summary>Sensores IoT</summary><div class="nav-sub"><a class="nav-link nav-all" href="sensores.html">Ver catálogo completo</a><a class="nav-link" href="sensores/acs712.html">ACS712</a><a class="nav-link" href="sensores/bh1750.html">BH1750</a><a class="nav-link" href="sensores/celula-carga-hx711.html">Célula de Carga + HX711</a><a class="nav-link" href="sensores/dht11.html">DHT11</a><a class="nav-link" href="sensores/dht22.html">DHT22 (AM2302)</a><a class="nav-link" href="sensores/ds18b20.html">DS18B20</a><a class="nav-link" href="sensores/ky-040.html">Encoder Incremental KY-040</a><a class="nav-link" href="sensores/hc-sr04.html">HC-SR04</a><a class="nav-link" href="sensores/ky-037.html">KY-037</a><a class="nav-link" href="sensores/ldr.html">LDR</a><a class="nav-link" href="sensores/lm35.html">LM35</a><a class="nav-link" href="sensores/mfrc522.html">MFRC522 (RFID)</a><a class="nav-link" href="sensores/mq-135.html">MQ-135</a><a class="nav-link" href="sensores/mq-2.html">MQ-2</a><a class="nav-link" href="sensores/pir-hc-sr501.html">PIR HC-SR501</a><a class="nav-link" href="sensores/sw-420.html">SW-420</a><a class="nav-link" href="sensores/lj18a3.html">Sensor Capacitivo LJ18A3</a><a class="nav-link" href="sensores/soil-moisture.html">Sensor Capacitivo de Umidade do Solo</a><a class="nav-link" href="sensores/fc-37.html">Sensor FC-37 (Chuva)</a><a class="nav-link" href="sensores/hall-a3144.html">Sensor Hall A3144</a><a class="nav-link" href="sensores/lj12a3.html">Sensor Indutivo LJ12A3</a><a class="nav-link" href="sensores/chama-ir.html">Sensor de Chama IR</a><a class="nav-link" href="sensores/boia-nivel.html">Sensor de Nível (Boia)</a><a class="nav-link" href="sensores/yf-s201.html">YF-S201</a><a class="nav-link" href="sensores/zmpt101b.html">ZMPT101B</a></div></details><a class="nav-link" href="arduino.html">Arduino</a><a class="nav-link" href="desafios-arduino.html">Desafios Arduino</a><a class="nav-link" href="desafios-esp8266.html">Desafios ESP8266</a><a class="nav-link" href="quiz-saep.html" aria-current="page">Quiz SAEP</a><a class="nav-link" href="referencias.html">Referências</a></nav>
+        </aside>
+
+        <div class="content">
+            <div class="topbar">
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+                <a class="topbar-name" href="index.html">Site de Arduinos</a>
+            </div>
+
+            <main class="pcb-board" id="conteudo">
+<nav class="breadcrumb" aria-label="Você está em"><a href="index.html">Início</a><span class="sep" aria-hidden="true">/</span><span>Quiz SAEP</span></nav>
+<header class="main-header"><div class="pcb-pad-group" aria-hidden="true"><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div><div class="pad"></div></div><h1>Quiz SAEP — Robôs, Sensores e Arduino</h1><p class="lead">Simulado com 10 questões no estilo do SAEP, cada uma com um contexto, um enunciado e quatro alternativas. Os temas vêm do conteúdo deste portal: robôs industriais, sensores, multímetro, Arduino, ESP8266 e programação.</p></header>
+<div class="trace-connector" aria-hidden="true"><div class="trace-line"><div class="electron"></div></div></div>
+<section class="module" id="como-funciona"><div class="module-header"><h2><i class="fa-solid fa-list-check" aria-hidden="true"></i>Como funciona</h2><span class="led led-yellow" aria-hidden="true"></span></div><div class="module-body"><p class="explanation">Leia o <strong>contexto</strong>, analise o enunciado e escolha <strong>uma</strong> das quatro alternativas. Depois de confirmar, você vê se acertou e lê a explicação. No fim, o resultado mostra seu desempenho por tema e indica onde revisar no site.</p><div class="components-list"><span class="chip">Robôs industriais · 1</span><span class="chip">Sensores · 2</span><span class="chip">Multímetro · 1</span><span class="chip">Arduino: conceitos e portas · 2</span><span class="chip">ESP8266 · 1</span><span class="chip">Programação · 3</span></div></div></section>
+<section class="module quiz" id="quiz" aria-label="Simulado SAEP"><div class="module-header"><h2><i class="fa-solid fa-clipboard-question" aria-hidden="true"></i>Simulado</h2><span class="led led-blue" aria-hidden="true"></span></div>
+<div class="quiz-status" id="quizStatus"><div class="quiz-status-row"><span id="quizProgressoTexto">Questão 1 de 10</span><span id="quizPlacar">Acertos: 0</span></div><div class="quiz-bar" role="progressbar" aria-label="Progresso do simulado" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="quizBar"><span id="quizBarFill"></span></div></div>
+<noscript><p class="explanation">Ative o JavaScript para responder ao simulado interativo. As questões aparecem abaixo sem correção.</p></noscript>
+<div class="quiz-lista" id="quizLista">
+<article class="quiz-q" data-q="1" data-correta="d" data-tema="Robôs industriais" data-revisar="robos/delta.html" data-rotulo="Robô Delta">
+<p class="quiz-tag"><i class="fa-solid fa-robot" aria-hidden="true"></i>Robôs industriais</p>
+<div class="quiz-contexto"><h3>Contexto</h3><p>Uma fábrica de alimentos precisa automatizar o empacotamento de biscoitos em bandejas. Os biscoitos chegam em uma esteira em movimento contínuo, e uma câmera de visão localiza cada unidade e envia as coordenadas em tempo real ao controlador.</p><p>O robô escolhido deve realizar dezenas de ciclos por minuto, manipular cargas muito leves e ter uma estrutura de três braços leves presos a uma base fixa suspensa acima da esteira, que movem juntos uma única plataforma.</p></div>
+<p class="quiz-enunciado"><strong>Questão 1.</strong> Qual tipo de robô industrial atende a essa aplicação?</p>
+<fieldset class="quiz-alts"><legend class="quiz-sr">Alternativas da questão 1</legend><label class="quiz-opt"><input type="radio" name="q1" value="a"><span class="quiz-letter" aria-hidden="true">A</span><span class="quiz-opt-text">Robô SCARA, com dois eixos rotativos horizontais e um eixo vertical linear.</span></label><label class="quiz-opt"><input type="radio" name="q1" value="b"><span class="quiz-letter" aria-hidden="true">B</span><span class="quiz-opt-text">Robô Cartesiano, que se move em linhas retas nos eixos X, Y e Z.</span></label><label class="quiz-opt"><input type="radio" name="q1" value="c"><span class="quiz-letter" aria-hidden="true">C</span><span class="quiz-opt-text">Robô Colaborativo, com sensores de torque nas juntas para trabalhar sem cercas ao lado de pessoas.</span></label><label class="quiz-opt"><input type="radio" name="q1" value="d"><span class="quiz-letter" aria-hidden="true">D</span><span class="quiz-opt-text">Robô Delta, de estrutura paralela, indicado para pick and place de alta velocidade com cargas leves.</span></label></fieldset>
+<div class="quiz-feedback" aria-live="polite" hidden><p class="quiz-veredito"></p><p class="explanation">O robô Delta usa três braços independentes presos a uma base fixa superior, que controlam ao mesmo tempo uma plataforma móvel. Essa estrutura paralela reduz a massa em movimento e permite velocidades muito altas, por isso ele é típico de pick and place nas indústrias alimentícia e farmacêutica, com tracking de peças na esteira feito por visão. O SCARA é rápido, mas tem estrutura serial; o Cartesiano prioriza precisão e não velocidade; e o Colaborativo foca na segurança para trabalhar junto de pessoas.</p><a class="quiz-rev" href="robos/delta.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Revisar no site: Robô Delta</a></div>
+<div class="quiz-actions"><button class="btn quiz-confirmar" type="button" disabled>Confirmar resposta</button><button class="btn btn-outline quiz-proxima" type="button" hidden>Próxima questão<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+</article>
+<article class="quiz-q" data-q="2" data-correta="a" data-tema="Sensores" data-revisar="sensores/pir-hc-sr501.html" data-rotulo="PIR HC-SR501">
+<p class="quiz-tag"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>Sensores</p>
+<div class="quiz-contexto"><h3>Contexto</h3><p>Em um corredor de uma escola técnica, a lâmpada deve acender sozinha quando alguém passar e apagar 30 segundos depois do último movimento.</p><p>O projeto precisa de um sensor que detecte a radiação infravermelha emitida por corpos quentes em movimento e entregue ao Arduino um sinal simples de nível alto ou baixo.</p></div>
+<p class="quiz-enunciado"><strong>Questão 2.</strong> Qual sensor e qual forma de leitura são adequados a esse projeto?</p>
+<fieldset class="quiz-alts"><legend class="quiz-sr">Alternativas da questão 2</legend><label class="quiz-opt"><input type="radio" name="q2" value="a"><span class="quiz-letter" aria-hidden="true">A</span><span class="quiz-opt-text">Sensor PIR HC-SR501, lido com digitalRead() em um pino digital.</span></label><label class="quiz-opt"><input type="radio" name="q2" value="b"><span class="quiz-letter" aria-hidden="true">B</span><span class="quiz-opt-text">LDR em divisor de tensão, lido com analogRead() no pino A0.</span></label><label class="quiz-opt"><input type="radio" name="q2" value="c"><span class="quiz-letter" aria-hidden="true">C</span><span class="quiz-opt-text">Ultrassônico HC-SR04, lido com pulseIn() no pino Echo.</span></label><label class="quiz-opt"><input type="radio" name="q2" value="d"><span class="quiz-letter" aria-hidden="true">D</span><span class="quiz-opt-text">Sensor de gás MQ-2, lido com analogRead() em um pino analógico.</span></label></fieldset>
+<div class="quiz-feedback" aria-live="polite" hidden><p class="quiz-veredito"></p><p class="explanation">O PIR usa um elemento piroelétrico e uma lente Fresnel para perceber variações de infravermelho quando um corpo quente se move. A saída dele é digital (HIGH com movimento, LOW sem movimento), então o Arduino a lê com digitalRead(). O LDR mede luminosidade, o HC-SR04 mede distância pelo eco de ultrassom e o MQ-2 detecta gases e fumaça.</p><a class="quiz-rev" href="sensores/pir-hc-sr501.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Revisar no site: PIR HC-SR501</a></div>
+<div class="quiz-actions"><button class="btn quiz-confirmar" type="button" disabled>Confirmar resposta</button><button class="btn btn-outline quiz-proxima" type="button" hidden>Próxima questão<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+</article>
+<article class="quiz-q" data-q="3" data-correta="b" data-tema="Sensores" data-revisar="sensores/hc-sr04.html" data-rotulo="HC-SR04">
+<p class="quiz-tag"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>Sensores</p>
+<div class="quiz-contexto"><h3>Contexto</h3><p>Um robô móvel usa um sensor ultrassônico HC-SR04 para desviar de obstáculos. Em um teste, o Arduino mediu com pulseIn() que o pino Echo ficou em nível alto por 1166 µs.</p><p>O código converte o tempo em distância usando a velocidade do som, de aproximadamente 0,0343 cm/µs.</p></div>
+<p class="quiz-enunciado"><strong>Questão 3.</strong> Qual é a distância aproximada entre o sensor e o obstáculo?</p>
+<fieldset class="quiz-alts"><legend class="quiz-sr">Alternativas da questão 3</legend><label class="quiz-opt"><input type="radio" name="q3" value="a"><span class="quiz-letter" aria-hidden="true">A</span><span class="quiz-opt-text">10 cm</span></label><label class="quiz-opt"><input type="radio" name="q3" value="b"><span class="quiz-letter" aria-hidden="true">B</span><span class="quiz-opt-text">20 cm</span></label><label class="quiz-opt"><input type="radio" name="q3" value="c"><span class="quiz-letter" aria-hidden="true">C</span><span class="quiz-opt-text">40 cm</span></label><label class="quiz-opt"><input type="radio" name="q3" value="d"><span class="quiz-letter" aria-hidden="true">D</span><span class="quiz-opt-text">80 cm</span></label></fieldset>
+<div class="quiz-feedback" aria-live="polite" hidden><p class="quiz-veredito"></p><p class="explanation">O tempo medido corresponde à ida e à volta do pulso sonoro. Por isso a fórmula é d = (t × 0,0343) / 2. Assim, 1166 × 0,0343 ≈ 40 cm e, dividindo por 2, chega-se a cerca de 20 cm. Esquecer a divisão por 2 leva ao erro de 40 cm.</p><a class="quiz-rev" href="sensores/hc-sr04.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Revisar no site: HC-SR04</a></div>
+<div class="quiz-actions"><button class="btn quiz-confirmar" type="button" disabled>Confirmar resposta</button><button class="btn btn-outline quiz-proxima" type="button" hidden>Próxima questão<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+</article>
+<article class="quiz-q" data-q="4" data-correta="d" data-tema="Multímetro e medições" data-revisar="sensores/acs712.html" data-rotulo="ACS712">
+<p class="quiz-tag"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Multímetro e medições</p>
+<div class="quiz-contexto"><h3>Contexto</h3><p>Um técnico monta um monitor de corrente com o sensor ACS712 (versão de 20 A), alimentado com 5 V pelo Arduino. Antes de ligar a carga, ele quer conferir com um multímetro se a saída OUT do módulo está correta.</p><p>Sem corrente circulando, essa saída deve ficar em VCC/2.</p></div>
+<p class="quiz-enunciado"><strong>Questão 4.</strong> Como o técnico deve usar o multímetro e qual leitura deve esperar?</p>
+<fieldset class="quiz-alts"><legend class="quiz-sr">Alternativas da questão 4</legend><label class="quiz-opt"><input type="radio" name="q4" value="a"><span class="quiz-letter" aria-hidden="true">A</span><span class="quiz-opt-text">Função de corrente (A), em série com o pino OUT; leitura próxima de 0 A.</span></label><label class="quiz-opt"><input type="radio" name="q4" value="b"><span class="quiz-letter" aria-hidden="true">B</span><span class="quiz-opt-text">Função de tensão alternada (VCA), entre OUT e GND; leitura próxima de 0 V.</span></label><label class="quiz-opt"><input type="radio" name="q4" value="c"><span class="quiz-letter" aria-hidden="true">C</span><span class="quiz-opt-text">Função de resistência (Ω), entre OUT e VCC, com o circuito energizado; leitura próxima de 2,5 kΩ.</span></label><label class="quiz-opt"><input type="radio" name="q4" value="d"><span class="quiz-letter" aria-hidden="true">D</span><span class="quiz-opt-text">Função de tensão contínua (VCC), em paralelo entre OUT e GND, com o circuito energizado; leitura próxima de 2,5 V.</span></label></fieldset>
+<div class="quiz-feedback" aria-live="polite" hidden><p class="quiz-veredito"></p><p class="explanation">A saída do ACS712 é uma tensão contínua analógica centrada em VCC/2, ou seja, 2,5 V com alimentação de 5 V e sem corrente. Tensão se mede sempre em paralelo com o ponto de interesse (aqui, OUT e GND) e na função de tensão contínua. Corrente exige ligação em série, resistência só deve ser medida com o circuito desenergizado, e VCA serve para tensões alternadas, como a da rede elétrica.</p><a class="quiz-rev" href="sensores/acs712.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Revisar no site: ACS712</a></div>
+<div class="quiz-actions"><button class="btn quiz-confirmar" type="button" disabled>Confirmar resposta</button><button class="btn btn-outline quiz-proxima" type="button" hidden>Próxima questão<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+</article>
+<article class="quiz-q" data-q="5" data-correta="b" data-tema="Arduino: conceitos e portas" data-revisar="arduino.html" data-rotulo="Arduino">
+<p class="quiz-tag"><i class="fa-solid fa-microchip" aria-hidden="true"></i>Arduino: conceitos e portas</p>
+<div class="quiz-contexto"><h3>Contexto</h3><p>Em um projeto com Arduino Uno, um aluno ligou um LED ao pino digital 13 e quer controlar o brilho dele com um potenciômetro ligado ao pino A0.</p><p>Ele escreveu analogWrite(13, valor) no loop(), mas o LED apenas liga ou desliga, sem variar o brilho.</p></div>
+<p class="quiz-enunciado"><strong>Questão 5.</strong> Qual é a causa do problema e a correção adequada?</p>
+<fieldset class="quiz-alts"><legend class="quiz-sr">Alternativas da questão 5</legend><label class="quiz-opt"><input type="radio" name="q5" value="a"><span class="quiz-letter" aria-hidden="true">A</span><span class="quiz-opt-text">analogWrite() só funciona nos pinos A0 a A5, então o LED deve ser ligado a um deles.</span></label><label class="quiz-opt"><input type="radio" name="q5" value="b"><span class="quiz-letter" aria-hidden="true">B</span><span class="quiz-opt-text">O pino 13 não tem saída PWM, então o LED deve ser ligado a um pino PWM (marcado com ~), como o 6, o 9 ou o 10.</span></label><label class="quiz-opt"><input type="radio" name="q5" value="c"><span class="quiz-letter" aria-hidden="true">C</span><span class="quiz-opt-text">Falta usar pinMode(13, INPUT) no setup() para liberar a função PWM do pino.</span></label><label class="quiz-opt"><input type="radio" name="q5" value="d"><span class="quiz-letter" aria-hidden="true">D</span><span class="quiz-opt-text">O potenciômetro deve ser lido com digitalRead() para gerar valores de 0 a 255.</span></label></fieldset>
+<div class="quiz-feedback" aria-live="polite" hidden><p class="quiz-veredito"></p><p class="explanation">No Arduino Uno, apenas 6 dos 14 pinos digitais têm PWM (os marcados com ~: 3, 5, 6, 9, 10 e 11). Os demais só assumem HIGH ou LOW. O pino do LED continua configurado como OUTPUT, e o potenciômetro é lido com analogRead() e convertido para 0–255 com map(). No Desafio 02 do site, o LED usa o pino 6 justamente por ser um pino PWM.</p><a class="quiz-rev" href="arduino.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Revisar no site: Arduino</a></div>
+<div class="quiz-actions"><button class="btn quiz-confirmar" type="button" disabled>Confirmar resposta</button><button class="btn btn-outline quiz-proxima" type="button" hidden>Próxima questão<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+</article>
+<article class="quiz-q" data-q="6" data-correta="c" data-tema="Arduino: conceitos e portas" data-revisar="arduino.html" data-rotulo="Arduino">
+<p class="quiz-tag"><i class="fa-solid fa-microchip" aria-hidden="true"></i>Arduino: conceitos e portas</p>
+<div class="quiz-contexto"><h3>Contexto</h3><p>Um LDR está ligado em divisor de tensão a um Arduino Uno alimentado com 5 V: 5 V → LDR → pino A0 → resistor de 10 kΩ → GND.</p><p>O conversor analógico-digital (ADC) do Uno tem 10 bits. Ao acender uma lâmpada sobre o LDR, o Monitor Serial exibe analogRead(A0) = 512.</p></div>
+<p class="quiz-enunciado"><strong>Questão 6.</strong> Qual é a tensão aproximada no pino A0 nesse momento?</p>
+<fieldset class="quiz-alts"><legend class="quiz-sr">Alternativas da questão 6</legend><label class="quiz-opt"><input type="radio" name="q6" value="a"><span class="quiz-letter" aria-hidden="true">A</span><span class="quiz-opt-text">0,5 V</span></label><label class="quiz-opt"><input type="radio" name="q6" value="b"><span class="quiz-letter" aria-hidden="true">B</span><span class="quiz-opt-text">1,0 V</span></label><label class="quiz-opt"><input type="radio" name="q6" value="c"><span class="quiz-letter" aria-hidden="true">C</span><span class="quiz-opt-text">2,5 V</span></label><label class="quiz-opt"><input type="radio" name="q6" value="d"><span class="quiz-letter" aria-hidden="true">D</span><span class="quiz-opt-text">5,0 V</span></label></fieldset>
+<div class="quiz-feedback" aria-live="polite" hidden><p class="quiz-veredito"></p><p class="explanation">Com ADC de 10 bits, a leitura vai de 0 a 1023 para tensões de 0 a 5 V. Portanto, V = 512 × 5 / 1023 ≈ 2,5 V, a metade da faixa. Nesse arranjo (LDR no lado do 5 V), mais luz reduz a resistência do LDR e aumenta a tensão em A0, e por isso leituras maiores indicam ambiente mais claro.</p><a class="quiz-rev" href="arduino.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Revisar no site: Arduino</a></div>
+<div class="quiz-actions"><button class="btn quiz-confirmar" type="button" disabled>Confirmar resposta</button><button class="btn btn-outline quiz-proxima" type="button" hidden>Próxima questão<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+</article>
+<article class="quiz-q" data-q="7" data-correta="c" data-tema="ESP8266" data-revisar="desafios-esp8266.html#o-que-e-o-esp8266" data-rotulo="O que é o ESP8266">
+<p class="quiz-tag"><i class="fa-solid fa-wifi" aria-hidden="true"></i>ESP8266</p>
+<div class="quiz-contexto"><h3>Contexto</h3><p>Uma equipe tem um projeto com Arduino Uno que lê três sensores analógicos (LM35, LDR e MQ-2) nas entradas A0, A1 e A2.</p><p>Para enviar os dados pela internet, ela decidiu migrar o projeto para uma placa NodeMCU com ESP8266, aproveitando o Wi-Fi integrado e a mesma IDE Arduino.</p></div>
+<p class="quiz-enunciado"><strong>Questão 7.</strong> Qual característica do ESP8266 a equipe deve considerar antes de migrar o circuito?</p>
+<fieldset class="quiz-alts"><legend class="quiz-sr">Alternativas da questão 7</legend><label class="quiz-opt"><input type="radio" name="q7" value="a"><span class="quiz-letter" aria-hidden="true">A</span><span class="quiz-opt-text">O ESP8266 não pode ser programado pela IDE Arduino, o que obriga a usar outra linguagem.</span></label><label class="quiz-opt"><input type="radio" name="q7" value="b"><span class="quiz-letter" aria-hidden="true">B</span><span class="quiz-opt-text">O ESP8266 não tem Wi-Fi integrado, sendo necessário conectar um módulo externo.</span></label><label class="quiz-opt"><input type="radio" name="q7" value="c"><span class="quiz-letter" aria-hidden="true">C</span><span class="quiz-opt-text">O ESP8266 tem apenas uma entrada analógica (A0) e trabalha com lógica de 3,3 V, o que exige adaptar a leitura dos três sensores.</span></label><label class="quiz-opt"><input type="radio" name="q7" value="d"><span class="quiz-letter" aria-hidden="true">D</span><span class="quiz-opt-text">O ESP8266 opera com lógica de 5 V e tem as mesmas seis entradas analógicas do Arduino Uno.</span></label></fieldset>
+<div class="quiz-feedback" aria-live="polite" hidden><p class="quiz-veredito"></p><p class="explanation">O ESP8266 tem Wi-Fi 802.11 b/g/n integrado e é programado em C/C++ pela IDE Arduino, mas trabalha com lógica de 3,3 V (e não 5 V) e oferece só uma entrada analógica (A0), contra as seis do Uno (A0–A5). Por isso, ler três sensores analógicos exige adaptações, como usar um multiplexador ou trocar sensores por versões digitais, além de conferir os níveis de tensão.</p><a class="quiz-rev" href="desafios-esp8266.html#o-que-e-o-esp8266"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Revisar no site: O que é o ESP8266</a></div>
+<div class="quiz-actions"><button class="btn quiz-confirmar" type="button" disabled>Confirmar resposta</button><button class="btn btn-outline quiz-proxima" type="button" hidden>Próxima questão<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+</article>
+<article class="quiz-q" data-q="8" data-correta="a" data-tema="Programação" data-revisar="desafios-esp8266.html#desafio-06-monitor-de-temperatura-com-indicacao-por-led" data-rotulo="Desafio 06">
+<p class="quiz-tag"><i class="fa-solid fa-code" aria-hidden="true"></i>Programação</p>
+<div class="quiz-contexto"><h3>Contexto</h3><p>No monitor de temperatura do Desafio 06, o sensor LM35 está ligado ao pino A0 e entrega 10 mV por °C. Em um teste, o Monitor Serial mostrou analogRead(A0) = 55. Considere o trecho do código:</p><div class="firmware-section quiz-code"><div class="firmware-header"><h3>desafio-06.ino</h3></div><pre><code class="language-cpp">const int pinoLM35 = A0;
+const int ledFrio     = 8;
+const int ledAmbiente = 9;
+const int ledQuente   = 10;
+
+void loop() {
+  int leitura = analogRead(pinoLM35);
+  float tensao = leitura * (5.0 / 1023.0);
+  float tempC  = tensao * 100.0; // LM35: 10mV por grau Celsius
+
+  digitalWrite(ledFrio,     LOW);
+  digitalWrite(ledAmbiente, LOW);
+  digitalWrite(ledQuente,   LOW);
+
+  if (tempC &lt;= 20.0) {
+    digitalWrite(ledFrio, HIGH);
+  } else if (tempC &lt;= 28.0) {
+    digitalWrite(ledAmbiente, HIGH);
+  } else {
+    digitalWrite(ledQuente, HIGH);
+  }
+}</code></pre></div></div>
+<p class="quiz-enunciado"><strong>Questão 8.</strong> Qual LED permanece aceso após essa leitura?</p>
+<fieldset class="quiz-alts"><legend class="quiz-sr">Alternativas da questão 8</legend><label class="quiz-opt"><input type="radio" name="q8" value="a"><span class="quiz-letter" aria-hidden="true">A</span><span class="quiz-opt-text">ledAmbiente</span></label><label class="quiz-opt"><input type="radio" name="q8" value="b"><span class="quiz-letter" aria-hidden="true">B</span><span class="quiz-opt-text">ledFrio</span></label><label class="quiz-opt"><input type="radio" name="q8" value="c"><span class="quiz-letter" aria-hidden="true">C</span><span class="quiz-opt-text">ledQuente</span></label><label class="quiz-opt"><input type="radio" name="q8" value="d"><span class="quiz-letter" aria-hidden="true">D</span><span class="quiz-opt-text">Nenhum, pois o valor calculado está fora de todas as faixas.</span></label></fieldset>
+<div class="quiz-feedback" aria-live="polite" hidden><p class="quiz-veredito"></p><p class="explanation">tensao = 55 × 5 / 1023 ≈ 0,269 V e tempC = 0,269 × 100 ≈ 26,9 °C. Como 26,9 é maior que 20 e menor ou igual a 28, o segundo teste é verdadeiro e apenas o ledAmbiente acende (os três LEDs são apagados antes dos testes). Quem esquece de multiplicar por 100 obtém 0,27 e marcaria o ledFrio por engano.</p><a class="quiz-rev" href="desafios-esp8266.html#desafio-06-monitor-de-temperatura-com-indicacao-por-led"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Revisar no site: Desafio 06</a></div>
+<div class="quiz-actions"><button class="btn quiz-confirmar" type="button" disabled>Confirmar resposta</button><button class="btn btn-outline quiz-proxima" type="button" hidden>Próxima questão<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+</article>
+<article class="quiz-q" data-q="9" data-correta="c" data-tema="Programação" data-revisar="arduino.html" data-rotulo="PIR HC-SR501 no Arduino">
+<p class="quiz-tag"><i class="fa-solid fa-code" aria-hidden="true"></i>Programação</p>
+<div class="quiz-contexto"><h3>Contexto</h3><p>O código abaixo controla a lâmpada do corredor com o sensor PIR. A última leitura HIGH do PIR ocorreu quando millis() marcava 12000 ms e, depois disso, ninguém mais passou pelo corredor.</p><div class="firmware-section quiz-code"><div class="firmware-header"><h3>pir-hc-sr501.ino</h3></div><pre><code class="language-cpp">const unsigned long TEMPO_ACESO = 30000; // 30 segundos
+unsigned long ultimaDeteccao = 0;
+
+void loop() {
+  int movimento = digitalRead(PINO_PIR);
+
+  if (movimento == HIGH) {
+    ultimaDeteccao = millis();
+    digitalWrite(PINO_LAMPADA, HIGH);
+  }
+
+  if (millis() - ultimaDeteccao &gt; TEMPO_ACESO) {
+    digitalWrite(PINO_LAMPADA, LOW);
+  }
+}</code></pre></div></div>
+<p class="quiz-enunciado"><strong>Questão 9.</strong> Em que instante, medido por millis(), a lâmpada passa a ser apagada?</p>
+<fieldset class="quiz-alts"><legend class="quiz-sr">Alternativas da questão 9</legend><label class="quiz-opt"><input type="radio" name="q9" value="a"><span class="quiz-letter" aria-hidden="true">A</span><span class="quiz-opt-text">Logo após 12000 ms, pois a lâmpada apaga assim que o movimento termina.</span></label><label class="quiz-opt"><input type="radio" name="q9" value="b"><span class="quiz-letter" aria-hidden="true">B</span><span class="quiz-opt-text">Após 30000 ms, pois o tempo de 30 segundos é contado desde que o Arduino foi ligado.</span></label><label class="quiz-opt"><input type="radio" name="q9" value="c"><span class="quiz-letter" aria-hidden="true">C</span><span class="quiz-opt-text">Logo após 42000 ms, pois o tempo de 30 segundos é contado a partir da última detecção.</span></label><label class="quiz-opt"><input type="radio" name="q9" value="d"><span class="quiz-letter" aria-hidden="true">D</span><span class="quiz-opt-text">Após 60000 ms, pois a condição precisa ser verdadeira por dois ciclos de 30 segundos.</span></label></fieldset>
+<div class="quiz-feedback" aria-live="polite" hidden><p class="quiz-veredito"></p><p class="explanation">A cada detecção, ultimaDeteccao recebe o valor atual de millis() (12000). A lâmpada só apaga quando millis() − ultimaDeteccao passa de 30000, isto é, quando millis() ultrapassa 12000 + 30000 = 42000 ms. Usar millis() em vez de delay() permite manter a lâmpada acesa por um tempo sem travar o programa.</p><a class="quiz-rev" href="arduino.html"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Revisar no site: PIR HC-SR501 no Arduino</a></div>
+<div class="quiz-actions"><button class="btn quiz-confirmar" type="button" disabled>Confirmar resposta</button><button class="btn btn-outline quiz-proxima" type="button" hidden>Próxima questão<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+</article>
+<article class="quiz-q" data-q="10" data-correta="d" data-tema="Programação" data-revisar="desafios-esp8266.html#desafio-07-contador-com-esp8266-2-botoes-e-display-7-segmentos" data-rotulo="Desafio 07">
+<p class="quiz-tag"><i class="fa-solid fa-code" aria-hidden="true"></i>Programação</p>
+<div class="quiz-contexto"><h3>Contexto</h3><p>No Desafio 07, um contador de um dígito usa um ESP8266 e botões ligados com INPUT_PULLUP (o outro terminal de cada botão vai ao GND). O display mostra 0.</p><p>O operador pressiona uma única vez o botão −1, ligado ao pino D6, e o solta. Considere o trecho do código:</p><div class="firmware-section quiz-code"><div class="firmware-header"><h3>desafio-07.ino</h3></div><pre><code class="language-cpp">const int botaoMenos = D6;
+int contador = 0;
+
+void setup() {
+  pinMode(botaoMenos, INPUT_PULLUP);
+  mostrarDigito(contador);
+}
+
+void loop() {
+  if (digitalRead(botaoMenos) == LOW) {
+    contador--;
+    if (contador &lt; 0) contador = 9;
+    mostrarDigito(contador);
+    delay(200); // debounce simples
+  }
+}</code></pre></div></div>
+<p class="quiz-enunciado"><strong>Questão 10.</strong> O que o display exibirá depois desse único clique?</p>
+<fieldset class="quiz-alts"><legend class="quiz-sr">Alternativas da questão 10</legend><label class="quiz-opt"><input type="radio" name="q10" value="a"><span class="quiz-letter" aria-hidden="true">A</span><span class="quiz-opt-text">0, pois com INPUT_PULLUP o pino lê HIGH quando o botão é pressionado e a condição não é satisfeita.</span></label><label class="quiz-opt"><input type="radio" name="q10" value="b"><span class="quiz-letter" aria-hidden="true">B</span><span class="quiz-opt-text">1, pois o botão ligado a D6 incrementa o contador.</span></label><label class="quiz-opt"><input type="radio" name="q10" value="c"><span class="quiz-letter" aria-hidden="true">C</span><span class="quiz-opt-text">−1, pois o contador decrementa sem nenhum limite inferior.</span></label><label class="quiz-opt"><input type="radio" name="q10" value="d"><span class="quiz-letter" aria-hidden="true">D</span><span class="quiz-opt-text">9, pois o botão pressionado leva o pino a LOW, o contador decrementa e o código faz a contagem voltar ao maior dígito.</span></label></fieldset>
+<div class="quiz-feedback" aria-live="polite" hidden><p class="quiz-veredito"></p><p class="explanation">Com INPUT_PULLUP o pino fica em HIGH em repouso e vai a LOW quando o botão (ligado ao GND) é pressionado, então o if é verdadeiro. O contador passa de 0 para −1, mas o teste contador &lt; 0 o corrige para 9, e o display mostra 9. O delay(200) faz o debounce, evitando que o mesmo clique seja contado mais de uma vez.</p><a class="quiz-rev" href="desafios-esp8266.html#desafio-07-contador-com-esp8266-2-botoes-e-display-7-segmentos"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Revisar no site: Desafio 07</a></div>
+<div class="quiz-actions"><button class="btn quiz-confirmar" type="button" disabled>Confirmar resposta</button><button class="btn btn-outline quiz-proxima" type="button" hidden>Ver resultado<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+</article>
+</div>
+<div class="quiz-resultado" id="quizResultado" hidden aria-live="polite"></div>
+</section>
+<div class="btn-row"><a class="btn btn-outline" href="robos.html"><i class="fa-solid fa-robot" aria-hidden="true"></i>Robôs industriais</a><a class="btn btn-outline" href="sensores.html"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>Sensores</a><a class="btn btn-outline" href="arduino.html"><i class="fa-solid fa-microchip" aria-hidden="true"></i>Arduino</a><a class="btn btn-outline" href="desafios-esp8266.html"><i class="fa-solid fa-wifi" aria-hidden="true"></i>Desafios ESP8266</a></div>
+            </main>
+
+            <footer class="site-footer"><div class="site-footer-inner"><div class="brand-line"><strong>Site de Arduinos</strong>Robôs industriais, sensores e IoT</div><div class="contact"><a href="https://github.com/fabiotrevisan05" target="_blank" rel="noopener" aria-label="GitHub de Fabio Trevisan"><i class="fa-brands fa-square-github" aria-hidden="true"></i></a><div><p>Fabio Trevisan</p><p><span class="email">fabio_j_trevisan@estudante.sesisenai.org.br</span></p></div></div></div></footer>
+        </div>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+    <button class="to-top" id="toTop" type="button" aria-label="Voltar ao topo" hidden>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+</body>
+
+</html>

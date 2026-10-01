@@ -1965,3 +1965,287 @@ a.chip:hover {
         color: #000;
     }
 }
+
+/* =========================================================
+   QUIZ SAEP
+   ========================================================= */
+.quiz-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.quiz-status {
+    margin-bottom: 1.5rem;
+}
+
+.quiz-status-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: .55rem;
+    color: var(--text-dim);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .95rem;
+}
+
+.quiz-bar {
+    height: 10px;
+    border: 1px solid var(--pcb-trace);
+    border-radius: 999px;
+    background: #05150B;
+    overflow: hidden;
+}
+
+.quiz-bar span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--pcb-trace-active);
+    transition: width .3s ease;
+}
+
+.quiz-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    margin-bottom: 1rem;
+    padding: .25rem .8rem;
+    border: 1px solid var(--pcb-trace-active);
+    border-radius: 999px;
+    color: var(--pcb-trace-active);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: .88rem;
+}
+
+.quiz-contexto {
+    padding: 1.1rem 1.25rem;
+    border: 1px dashed var(--pcb-trace);
+    border-left: 4px solid var(--led-blue);
+    border-radius: 6px;
+    background: rgba(0, 240, 255, .04);
+}
+
+.quiz-contexto h3 {
+    margin-bottom: .6rem;
+    color: var(--led-blue);
+    font-size: .95rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.quiz-contexto > p {
+    color: #E6ECE7;
+    line-height: 1.7;
+}
+
+.quiz-contexto > p + p {
+    margin-top: .7rem;
+}
+
+.quiz-code {
+    margin-top: 1rem;
+}
+
+.quiz-enunciado {
+    margin: 1.3rem 0 1rem;
+    color: #fff;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.quiz-enunciado strong {
+    color: var(--pcb-trace-active);
+}
+
+.quiz-alts {
+    display: grid;
+    gap: .7rem;
+    border: 0;
+}
+
+.quiz-opt {
+    display: flex;
+    align-items: flex-start;
+    gap: .85rem;
+    padding: .85rem 1rem;
+    border: 2px solid var(--pcb-trace);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, .35);
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+}
+
+.quiz-opt:hover {
+    border-color: var(--pcb-trace-active);
+    background: rgba(228, 192, 90, .08);
+}
+
+.quiz-opt input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.quiz-opt:has(input:focus-visible) {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+}
+
+.quiz-letter {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid var(--pcb-trace);
+    border-radius: 50%;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: bold;
+}
+
+.quiz-opt-text {
+    padding-top: .2rem;
+    line-height: 1.55;
+}
+
+.quiz-opt.selecionada {
+    border-color: var(--pcb-trace-active);
+    background: rgba(228, 192, 90, .12);
+}
+
+.quiz-opt.selecionada .quiz-letter {
+    border-color: var(--pcb-trace-active);
+    background: var(--pcb-trace-active);
+    color: #000;
+}
+
+.quiz-opt.certa {
+    border-color: #2DFF7A;
+    background: rgba(45, 255, 122, .12);
+}
+
+.quiz-opt.certa .quiz-letter {
+    border-color: #2DFF7A;
+    background: #2DFF7A;
+    color: #000;
+}
+
+.quiz-opt.errada {
+    border-color: var(--led-red);
+    background: rgba(255, 0, 60, .12);
+}
+
+.quiz-opt.errada .quiz-letter {
+    border-color: var(--led-red);
+    background: var(--led-red);
+    color: #fff;
+}
+
+.quiz-opt:has(input:disabled) {
+    cursor: default;
+}
+
+.quiz-feedback {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem;
+    border: 1px dashed var(--pcb-trace);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, .35);
+}
+
+.quiz-veredito {
+    margin-bottom: .6rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.05rem;
+}
+
+.quiz-veredito.ok {
+    color: #2DFF7A;
+}
+
+.quiz-veredito.erro {
+    color: #FF7A94;
+}
+
+.quiz-rev {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .8rem;
+    font-family: 'Share Tech Mono', monospace;
+    text-underline-offset: 3px;
+}
+
+.quiz-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.quiz-actions .btn:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.quiz-resultado h3 {
+    margin: 1.5rem 0 .7rem;
+    color: var(--pcb-trace-active);
+}
+
+.quiz-nota {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .5rem 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.quiz-nota-num {
+    color: var(--pcb-trace-active);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.quiz-nota-pct {
+    color: var(--text-dim);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.1rem;
+}
+
+.quiz-temas,
+.quiz-revisar {
+    display: grid;
+    gap: .5rem;
+    list-style: none;
+}
+
+.quiz-temas li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .6rem .9rem;
+    border: 1px solid var(--pcb-trace);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, .3);
+}
+
+.quiz-revisar li {
+    padding: .5rem .9rem;
+    border-left: 3px solid var(--led-red);
+    background: rgba(0, 0, 0, .3);
+}
+
+@media (max-width: 600px) {
+    .quiz-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
